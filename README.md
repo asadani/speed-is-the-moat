@@ -1,5 +1,16 @@
 # Speed Is the Moat
 
+<p align="center">
+  <img src="speed-is-the-moat-cover.png"
+       alt="Book cover reading SPEED IS THE MOAT, subtitled a practical guide to building compounding advantage in the AI era, by Anuj Sadani, over a long-exposure photograph of light trails curving toward a city skyline at dusk."
+       width="320">
+</p>
+
+<p align="center"><em><strong>The claim, as it is usually made.</strong><br>
+What follows is the test of it.</em></p>
+
+---
+
 A verified research report testing a claim that circulates widely in AI
 engineering: that now token cost is understood, **inference speed is the next
 durable differentiator** — the moat.
@@ -62,6 +73,7 @@ results in terms of performance per dollar and per megawatt.
 | `speed-is-the-moat.html` | Self-contained essay version, styled for screen and print. |
 | `SUMMARY.md` | The condensed argument and the numbers. |
 | `.research/` | The verification workspace. This is the part that makes the report checkable. |
+| `speed-is-the-moat-cover.png` | Cover art. |
 | `LICENSE` | CC BY-NC-ND 4.0. Does not cover captured third-party sources. |
 
 ### The verification workspace
@@ -138,3 +150,25 @@ The sub-question on organisational governance moved from "unresolved" to
 
 These are stated in the report as well. A limitations section that only lives in
 a README is a limitations section nobody reads.
+
+---
+
+## A note on the cover
+
+The cover states the thesis in its popular form — and in its *other* form. "Build,
+learn, ship, repeat" is a claim about *organisational execution velocity*: how fast
+a team learns and ships.
+
+This report does not test that claim. It was ruled out of scope deliberately, and
+the brief says so before any evidence was gathered:
+
+> **Organisational execution speed.** "Ship fast as a moat" is a different thesis
+> about company velocity. Named explicitly because the phrase "speed is the moat"
+> is commonly used that way; this project is about *inference* speed only.
+
+What is tested here is the narrower, more measurable claim: that **inference**
+speed — latency and throughput — is a durable differentiator. On that question the
+answer is no, for the reasons above.
+
+So the cover is the proposition and the repository is the audit. They are meant to
+disagree. If they agreed, one of them would not have been worth writing.
