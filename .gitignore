@@ -8,3 +8,8 @@ Thumbs.db
 # Python bytecode from the verification scripts
 __pycache__/
 *.py[cod]
+
+# Cached variable-font masters (large, refetched by build/make_fonts.py)
+build/fonts/_var_*
+build/fonts/IBMPlexMono-Medium.ttf
+build/fonts/IBMPlexMono-SemiBold.ttf

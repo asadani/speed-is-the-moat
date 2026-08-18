@@ -69,11 +69,13 @@ results in terms of performance per dollar and per megawatt.
 
 | Path | What it is |
 |---|---|
-| `speed-is-the-moat.md` | The report. Every checkable sentence carries a `[^c-NNN]` marker resolving to the claims ledger, with a generated References section. |
-| `speed-is-the-moat.html` | Self-contained essay version, styled for screen and print. |
+| `speed-is-the-moat.pdf` | **The book.** 23 pages, typeset, print-ready A4. |
+| `speed-is-the-moat.html` | The same book as a self-contained page — reads on screen, prints identically. All fonts and images embedded; no network needed. |
+| `speed-is-the-moat.md` | The underlying report. Every checkable sentence carries a `[^c-NNN]` marker resolving to the claims ledger, with a generated References section. |
 | `SUMMARY.md` | The condensed argument and the numbers. |
 | `.research/` | The verification workspace. This is the part that makes the report checkable. |
 | `speed-is-the-moat-cover.png` | Cover art. |
+| `build/` | The book build: `book.html.in` template, `make_fonts.py` (cuts static font instances), `build_book.py` (HTML → headless Chrome → folio-stamped PDF). |
 | `LICENSE` | CC BY-NC-ND 4.0. Does not cover captured third-party sources. |
 
 ### The verification workspace
@@ -128,6 +130,21 @@ presented as settled.
 Produced with the [`research-anything`](https://github.com/asadani/research-anything)
 pipeline: **scope → gather → verify → synthesize → report**, with a verification
 gate that decides whether the report ships.
+
+The book edition is a second, parallel pipeline reading the same verified
+workspace:
+
+```bash
+python build/make_fonts.py    # cut static instances of the variable faces
+python build/build_book.py    # HTML -> headless Chrome -> folio-stamped PDF
+```
+
+Static font instances are not an optimization. Chrome degrades variable-font
+instances to Type 3 when printing, which is unusable in print; `make_fonts.py`
+flattens Archivo and Source Serif 4 to fixed weights so all nine faces embed as
+subsetted TrueType. `build_book.py` fails the build if a Type 3 face survives,
+if the cover image is missing, or if expected body text does not appear in the
+extracted PDF text.
 
 It ran in two passes. The first passed the gate with six named gaps. The second
 closed four of them — and two of those closures *changed the answer*, which is
