@@ -14,6 +14,7 @@ TEMPLATE = "build/book.html.in"
 HTML_OUT = "speed-is-the-moat.html"
 PDF_OUT = "speed-is-the-moat.pdf"
 COVER_SRC = "speed-is-the-moat-cover.png"
+COVER_PAGE = "build/cover-page.jpg"
 FOLIO_TTF = "build/fonts/IBMPlexMono-Regular.ttf"
 
 CHROME = r"C:/Program Files/Google/Chrome/Application/chrome.exe"
@@ -53,18 +54,16 @@ def font_faces():
 
 # ---------------------------------------------------------------- 1. HTML
 def build_html():
-    from PIL import Image
-    im = Image.open(COVER_SRC).convert("RGB")
-    im.thumbnail((900, 2700), Image.LANCZOS)
-    buf = io.BytesIO()
-    im.save(buf, format="JPEG", quality=88, optimize=True, progressive=True)
-    uri = "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode("ascii")
-    print("  cover  %s, %d KB embedded" % (im.size, len(buf.getvalue()) // 1024))
+    if not os.path.exists(COVER_PAGE):
+        sys.exit("missing %s -- run build/make_cover_page.py first" % COVER_PAGE)
+    blob = open(COVER_PAGE, "rb").read()
+    uri = "data:image/jpeg;base64," + base64.b64encode(blob).decode("ascii")
+    print("  cover  full-bleed A4 page, %d KB embedded" % (len(blob) // 1024))
 
     s = io.open(TEMPLATE, encoding="utf-8").read()
-    if "{{COVER_DATA_URI}}" not in s:
+    if "{{COVER_PAGE_URI}}" not in s:
         sys.exit("template has no cover slot")
-    s = s.replace("{{COVER_DATA_URI}}", uri)
+    s = s.replace("{{COVER_PAGE_URI}}", uri)
     s = s.replace("{{FONT_FACES}}", font_faces())
     io.open(HTML_OUT, "w", encoding="utf-8", newline="\n").write(s)
     print("  html   %s, %.2f MB" % (HTML_OUT, len(s.encode("utf-8")) / 1048576.0))
@@ -157,7 +156,7 @@ def verify(pages):
                   "source ledger", "PagedAttention"]:
         if probe.lower() not in all_txt.lower():
             problems.append("body text missing: %r" % probe)
-    if "{{COVER_DATA_URI}}" in all_txt:
+    if "{{COVER_PAGE_URI}}" in all_txt:
         problems.append("template placeholder leaked into output")
 
     images = sum(len(p.get_images()) for p in doc)

@@ -13,3 +13,4 @@ __pycache__/
 build/fonts/_var_*
 build/fonts/IBMPlexMono-Medium.ttf
 build/fonts/IBMPlexMono-SemiBold.ttf
+build/cover-page.jpg

@@ -69,7 +69,7 @@ results in terms of performance per dollar and per megawatt.
 
 | Path | What it is |
 |---|---|
-| `speed-is-the-moat.pdf` | **The book.** 23 pages, typeset, print-ready A4. |
+| `speed-is-the-moat.pdf` | **The book.** 24 pages, typeset, print-ready A4, full-bleed cover. |
 | `speed-is-the-moat.html` | The same book as a self-contained page — reads on screen, prints identically. All fonts and images embedded; no network needed. |
 | `speed-is-the-moat.md` | The underlying report. Every checkable sentence carries a `[^c-NNN]` marker resolving to the claims ledger, with a generated References section. |
 | `SUMMARY.md` | The condensed argument and the numbers. |
@@ -135,8 +135,9 @@ The book edition is a second, parallel pipeline reading the same verified
 workspace:
 
 ```bash
-python build/make_fonts.py    # cut static instances of the variable faces
-python build/build_book.py    # HTML -> headless Chrome -> folio-stamped PDF
+python build/make_fonts.py       # cut static instances of the variable faces
+python build/make_cover_page.py  # fit the cover art to a full-bleed A4 page
+python build/build_book.py       # HTML -> headless Chrome -> folio-stamped PDF
 ```
 
 Static font instances are not an optimization. Chrome degrades variable-font
@@ -145,6 +146,11 @@ flattens Archivo and Source Serif 4 to fixed weights so all nine faces embed as
 subsetted TrueType. `build_book.py` fails the build if a Type 3 face survives,
 if the cover image is missing, or if expected body text does not appear in the
 extracted PDF text.
+
+The cover is page one at full bleed, edge to edge, via `@page :first { margin:0 }`.
+Because the art is 2:3 and A4 is 1:1.414, `make_cover_page.py` trims the excess
+asymmetrically — mostly off the top, where the art is empty sky — so the author
+name near the foot is never clipped.
 
 It ran in two passes. The first passed the gate with six named gaps. The second
 closed four of them — and two of those closures *changed the answer*, which is
