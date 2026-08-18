@@ -1,0 +1,265 @@
+Celebrate Linux 35th Anniversary With 35% Off Training & Certification • SAVE NOW
+
+English
+Japan
+China
+Europe
+
+Sign In
+
+Search
+
+Join
+
+ABOUT
+
+About the LF
+
+Corporate Members
+
+Individual Supporters
+
+Leadership
+
+Inclusion & Accessibility
+
+Careers
+
+Brand Guidelines
+
+Contact Us
+
+PROJECTS
+
+View All Projects
+
+Host Your Project
+
+Partner Program
+
+Security
+
+Standards and Specifications
+
+Digital Trust
+
+Sustainability
+
+Management & Best Practices
+
+RESOURCES
+
+Blog
+
+Publications
+
+Open Source Guides
+
+Webinars
+
+Case Studies
+
+NEWSROOM
+
+Press Releases
+
+LF RESEARCH
+
+Latest Research
+
+Leadership & Advisory Board
+
+Surveys
+
+Research Forum
+
+LF EDUCATION
+
+Home
+
+Course Catalog
+
+Resources
+
+LF EVENTS
+
+Home
+
+Sponsor
+
+Submit a Talk
+
+Code of conduct
+
+LFX PLATFORM
+
+LFX Home
+
+LFX Tools
+
+LFX Insights
+
+Create an LFX Account
+
+Join
+
+Follow Us
+
+My Account
+
+Log In
+
+English |
+Japan |
+China |
+Europe
+
+6 MIN READ
+
+State of FinOps Survey: AI Value and Skills Top Priorities as FinOps Matures Across Technology Value (98% Manage AI, 90% SaaS, 64% Licensing, 48% Data Center)
+
+The Linux Foundation | 19 February 2026
+
+FinOps Foundation updates mission to reflect discipline's evolution from reactive cloud cost management to proactive technology value, moving at the speed of cloud.
+
+SAN FRANCISCO, Feb. 19, 2026 — The FinOps Foundation, a Linux Foundation program focused on advancing the people who manage the value of technology, today released the sixth annual State of FinOps survey showing that both managing AI and using AI is increasingly dominating the FinOps agenda while the discipline has definitively shifted from cloud-only work to broad technology value management with significantly elevated executive influence.
+
+Almost all the 1,192 survey respondents (98%) are managing AI spend, it has become the norm, up from 31% just two years ago. FinOps for AI is now the top forward-looking priority, while AI value management is the #1 skillset teams are seeking to add. Many organizations report being asked to self-fund AI investments through efficiency gains, tying FinOps directly to strategic AI enablement.
+
+The survey also confirms FinOps has moved well beyond the cloud. Nine of 10 practitioners are now being asked to manage SaaS (up from 65% last year), 64% manage licensing (up from 49%), 57% manage private cloud (up from 39%), and 48% manage data centers. SaaS, licensing, and AI are now normalized parts of the FinOps remit, managed with the same discipline as cloud infrastructure.
+
+Key findings from State of FinOps 2026:
+
+FinOps has shifted up into executive leadership and decision making. 78% of teams now report to the CTO or CIO (up 18%), and those with VP/SVP/EVP/C-suite engagement show dramatically increased influence over technology selection: cloud service selection (53% vs. 24%), cloud provider selection (47% vs. 16%), and cloud vs. data center placement (28% vs. 12%).
+
+Shaping future technology investments and value: FinOps leaders increasingly participate in strategic provider negotiations, commitment structures, and M&A technology due diligence, answering questions about ROI and value realization, not just savings. 28% of respondents reported managing or planning to manage labor costs in the FinOps practice, signaling continued expansion toward a broader technology value remit.
+
+Shift left is a top priority. Practitioners are embedding financial context earlier in the engineering lifecycle, allowing teams to make informed decisions pre-deployment rather than remediating after the bill arrives. Pre-deployment architecture guidance emerged as a top desired tooling capability.
+
+Priorities have shifted beyond foundational work. Despite continued focus on core optimization as a table stakes concern, more respondents now prioritize governance, forecasting, organizational alignment, and managing expanding technology areas than optimization and efficiency alone. Mature practices increasingly focus on unit economics, AI value quantification, and influencing technology selection, reflecting FinOps evolution from tactical function to strategic discipline.
+
+Small teams, centrally enabled with federated impact. 60% operate with centralized enablement supported by embedded team champions, with an additional 21% reporting hub-and-spoke models, less than 10% reported fully decentralized teams. Team sizes remain lean: organizations managing $100M+ average range of 8-10 practitioners and 3-10 contractors, scaling through enablement, AI productivity and automation rather than headcount.
+
+Disciplines are converging. FinOps teams are continuing the trend of integrating and collaborating more closely with IT Financial Management (ITFM), IT Asset Management (ITAM/SAM), and IT Service Management (ITSM), showing the widening expanse of FinOps influence across organizations. Partnership with Platform Engineering teams are increasingly mentioned. Larger companies tend toward collaboration between separate teams; smaller companies integrate them.
+
+FOCUS adoption accelerates. FOCUS (the FinOps Open Cost and Usage Specification) continues gaining traction as practitioners seek consistent data across an increasingly complex technology landscape. All major clouds now generate FOCUS data natively: from AWS, Microsoft, Google Cloud and Oracle to Alibaba Cloud, Huawei and Tencent, and even neoclouds like Nebius and Databricks recently announcing support. Among large spenders in the survey ($100M+), approximately 68% are already using or experimenting with FOCUS-formatted data with another 18% planning to. Top expansion requests for FOCUS mirror FinOps technology expansion: AI workloads, data center, deeper cloud, and broader PaaS/SaaS support.
+
+"FinOps has definitively expanded to a broad array of technology value management, and the FinOps Foundation has followed to reflect the full scope of what practitioners are doing in the industry today, what they influence, and how they use FinOps to drive greater value from technology investments," said J.R. Storment, Executive Director of the FinOps Foundation. "As companies pursue transformation via AI, with the resulting increases in AI costs, FinOps practices will be critical to enable c-level decisions about multi-year strategic technology investments across infrastructure types"
+
+Foundation Updates Mission to Reflect Industry Evolution
+
+In response to these definitive trends, the FinOps Foundation has updated its mission from "Advancing the People who manage the value of Cloud" to "Advancing the People who manage the Value of Technology."
+
+Four trends drove the Foundation's mission change:
+
+From Explaining the Past to Shaping the Future. Mature FinOps practices have moved beyond reporting on past spending to actively shaping future investments. This involves influencing technology decisions (architecture choices, vendor selection, commitment structures, and contract negotiations) before financial commitments are made. FinOps is no longer reactive; it's become a strategic input to help shape how technology investments are structured.
+
+Shift Left: Operational Proactivity. Practitioners are prioritizing a "shift left" approach, embedding financial context earlier in the engineering lifecycle. This allows teams to make informed decisions pre-deployment, avoiding costs that never materialize rather than remediating after the bill arrives. The survey confirms this direction, with pre-deployment architecture guidance emerging as a top desired tooling capability.
+
+Shift Up: Strategic Executive Alignment. FinOps has elevated to an executive-level conversation. As detailed above, teams reporting to technology leadership show dramatically increased influence over technology selection. FinOps leaders increasingly participate in strategic provider negotiations, commitment structures, and M&A technology due diligence, answering questions about ROI and value realization rather than savings.
+
+Expanded to Broader Technology Value. The technology area data speaks for itself: SaaS, licensing, private cloud, data center, AI, and even labor are now normalized parts of the FinOps remit, managed with the same discipline once reserved for public cloud infrastructure. FinOps has become a technology value practice moving at the speed of cloud.
+
+The survey included responses from practitioners representing companies with more than $83 billion in annual cloud spend across technology, communications, financial services, healthcare, retail and other industries.
+
+For more information, see the full report at data.finops.org
+
+Further details from the report will be released at FinOps X, the annual FinOps conference where thousands will gather to discuss technology value, June 8-11 in San Diego. Learn more at x.finops.org.
+
+About The FinOps Foundation
+The FinOps Foundation is a non-profit trade association focused on advancing the people who manage the value of technology. Made up of tens of thousands of FinOps practitioners, SMEs and technology providers including those in 93 of the Fortune 100. The global FinOps community is built on real-world experiences and knowledge that contributes to the open source best practices in the FinOps Framework and FOCUS specification, which supports certification and training. The community gathers at the annual FinOps X - the conference for technology value.
+
+Media Contact
+pr@finops.org
+
+About The Linux Foundation
+
+The Linux Foundation is the world’s leading home for collaboration on open source software, hardware, standards, and data. Linux Foundation projects are critical to the world’s infrastructure including Linux, Kubernetes, Node.js, ONAP, OpenChain, OpenSSF, OpenStack, PyTorch, RISC-V, SPDX, Zephyr, and more. The Linux Foundation is focused on leveraging best practices and addressing the needs of contributors, users, and solution providers to create sustainable models for open collaboration. For more information, please visit us at linuxfoundation.org.
+
+For a list of trademarks of The Linux Foundation, please see its trademark usage page: linuxfoundation.org/trademark-usage. Linux is a registered trademark of Linus Torvalds.
+
+Stay Connected with the Linux Foundation
+
+ABOUT THE LINUX FOUNDATION
+
+The Linux Foundation provides a neutral, trusted hub for developers to code, manage, and scale open technology projects.
+
+About the LF
+
+Leadership
+
+Careers
+
+Corporate Members
+
+Inclusion & Accessibility
+
+Brand Guidelines
+
+Contact Us
+
+Store
+
+PROJECTS
+
+View All Projects
+
+Host Your Project
+
+Security
+
+NEWSROOM
+
+Press Releases
+
+LF RESEARCH
+
+Latest Research
+
+Sponsor a Study
+
+Leadership & Advisory Board
+
+Research Forum
+
+LFX PLATFORM
+
+LFX Home
+
+LFX Tools
+
+LFX Insights
+
+Create an LFX Account
+
+RESOURCES
+
+Blog
+
+Publications
+
+Open Source Guides
+
+Webinars
+
+Case Studies
+
+LF EVENTS
+
+Home
+
+Sponsor an Event
+
+Submit a Talk
+
+Code of Conduct
+
+LF EDUCATION
+
+Home
+
+Course Catalog
+
+Resources
+
+Copyright © 2026 The Linux Foundation®. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For more information, including terms of use, privacy policy, and trademark usage, please see our Policies page. Privacy Policy | Trademark Usage

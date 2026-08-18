@@ -1,0 +1,156 @@
+Mathias Lechner
+
+SubscribeSign in
+
+The Economics of LLM Inference: Batch Sizes, Latency Tiers, and Why Model Labs Have an Advantage
+
+Mathias Lechner
+
+Feb 16, 2026
+
+29
+
+4
+
+1
+
+Share
+
+Anthropic recently launched a fast tier for Opus 4.6. OpenAI partnered with Cerebras to offer GPT-Codex-5.3 at 1,000 tokens per second. The inference pricing menu is expanding, and the economics behind it are worth understanding.
+
+Most discussions about LLM costs focus on training, the multi-million-dollar GPU clusters, the months-long runs, and the heroic engineering. But for any company serving an LLM to users, inference is where the ongoing bill lives. And the economics of inference are shaped by decisions that most people outside the field never think about: how requests flow through the system, how many of them get packed onto a single GPU at once, and whether you own the hardware or rent it by the hour.
+
+Thanks for reading! Subscribe for free to receive new posts and support my work.
+
+Subscribe
+
+This post walks through the inference pipeline, explains the core trade-off that drives pricing tiers, and makes the case that model labs have a structural cost advantage that pure inference providers will struggle to match.
+
+The Inference Pipeline
+
+When you send a request to an LLM API, your prompt doesn’t teleport directly onto a GPU. It passes through several layers, each with a distinct job.
+
+First, the API Gateway handles authentication, rate limiting, and billing. This is standard web infrastructure, e.g., REST endpoints backed by Redis or PostgreSQL for state management. Nothing LLM-specific here.
+
+Next, a Load Balancer distributes incoming requests across a fleet of inference servers. Again, a well-understood component. Its job is to ensure high availability and spread traffic so no single server gets overwhelmed.
+
+The Inference Server is where things get interesting. It receives your request, performs any necessary preprocessing (tokenization, prompt formatting), and, critically , doesn’t just fire it straight at the GPU. Instead, it feeds the request into a Continuous Batch Scheduler. Software like vLLM and SGLang handles this layer, collecting incoming requests and bundling them into batches before dispatching them to the GPU. The scheduler decides how many requests to pack together and when to send them, balancing two competing objectives: latency for the individual user and throughput for the system as a whole.
+
+Finally, the GPU executes the batched inference and returns results back up the chain to the user.
+
+The first two components (API Gateway and Load Balancer) are commodity infrastructure. You could lift them from any web service. The last two (Continuous Batch Scheduler and GPU execution) are where LLM inference diverges from traditional web workloads and where the interesting economics live.
+
+Batch Size: Trading Latency for Throughput
+
+Imagine you hire a painter to do your apartment. She shows up, and it’s just your one-bedroom. She sets up, rolls the walls, cuts the edges, done. Three hours, and she’s out the door.
+
+Now imagine the same painter gets hired to do an entire floor of a condo building — eight apartments, all the same layout. She doesn’t finish each one before starting the next. She works in circuits. She rolls a base coat in apartment 1, moves to apartment 2 while it dries, then 3, and so on. By the time she circles back, the first coat is dry and ready for the second. Her roller never sits idle.
+
+From the building owner’s perspective, this is great. She’s painting eight apartments in maybe 14 hours instead of 24. Walls per hour is way up. Cost per apartment is way down. But if you’re the tenant in apartment 1, your walls aren’t done in three hours anymore. You’re waiting more like 3 or 4 times as long, because your painter is rotating between eight units and yours isn’t her only focus.
+
+That’s the core tradeoff. One apartment at a time means fast completion for that tenant but a lot of dead time, waiting for coats to dry, gear sitting unused. Eight at a time means the painter’s labor is nearly fully used, but each individual apartment takes longer.
+
+This is how GPU inference works. The “batch size” or “concurrency level”, how many requests you pack onto a single GPU at once, determines where you sit on the tradeoff between latency and throughput. A batch size of 1 means a single request gets the full GPU to itself: low latency, but the GPU has idle capacity between operations, like a painter waiting for paint to dry. A batch size of 256 means the GPU is fully loaded: high throughput and low cost per request, but each individual request takes longer because it shares the GPU’s attention with 255 others.
+
+Packing more requests into a batch means each request costs less to serve, the GPU does more useful work per minute and per dollar. But the user on the other end sees higher latency, because their request shares the GPU with dozens or hundreds of others. These two forces create a tension, i.e., what’s most economic for the provider vs what’s preferred by the user, that doesn't resolve on its own. Where a provider sets their batch size is a business decision as much as a technical one, and the tradeoff isn't linear. Here's what the curve actually looks like as you move from small to large batch sizes:
+
+At different batch sizes, you land at different points on a concave curve. Small batches sit in the low-latency, low-throughput corner. Large batches sit in the high-throughput, high-latency corner. There is no free lunch, you cannot have both minimum latency and maximum throughput on the same hardware.
+
+Tiered Pricing
+
+In practice, many providers offer their inference API of the same model at two tiers: a cheap, high-batch service for workloads that can tolerate slower response latency, eg. 30-80 tps, and a pricier, low-batch service for anything interactive where a user is watching a cursor blink, eg. more than 100 tps. One makes money on volume, the other one makes money by charging a premium for reduced latency.
+
+Anthropic, for example, sells a faster tier for Claude that delivers roughly 2.5x the speed at 3x the price. xAI offers a “fast” endpoint for Grok alongside the standard one. The underlying model is identical in both cases: what differs is the batch size and scheduling priority on the GPU.
+
+I expect this kind of differentiation to become the norm. Today most providers offer at most two tiers. In the future, I think we’ll see a spectrum: a budget tier with high latency and low cost for bulk processing, a standard tier for interactive use, and a premium tier for latency-critical applications.
+
+One can think of the “batched” or “offline” API that OpenAI and Google offer that has a 24 hour turnaround time as an additional “ultra-high latency” tier.
+
+Custom Hardware: The Ultra-Fast Tier
+
+Everything above assumes NVIDIA GPUs, which are commodity hardware in the sense that anyone can buy or rent them. But companies like Groq and Cerebras have built custom silicon designed specifically for inference. Groq’s LPU and Cerebras’s wafer-scale chips achieve token generation speeds that GPUs simply cannot match, often 5–10x faster time-to-first-token and tokens-per-second compared to an H100 serving the same model.
+
+The catch is cost. Custom silicon doesn’t benefit from NVIDIA’s economies of scale, the chips are more expensive to manufacture, and the software ecosystem is narrower. You can’t just swap in a PyTorch model and run it; there’s a porting and optimization step. The result is that these providers sit above the standard “fast” tier in both speed and price.
+
+For latency-critical applications where every millisecond of time-to-first-token matters (think real-time voice agents or interactive coding assistants), custom hardware creates a tier that GPU-based providers can’t reach by tuning batch sizes alone. As these chips mature and manufacturing scales up, their pricing will come down, but for now they occupy a distinct and expensive corner of the inference market.
+
+The Hardware and the Software Gap
+
+There’s a misconception I see frequently, especially among people coming from the SaaS or PaaS world: they assume the cost structure of LLM inference looks roughly like traditional web workloads, just with bigger machines. It doesn’t. The gap is enormous.
+
+Consider two AWS on-demand instances, both with 16 vCPUs. A compute-optimized c8a.4xlarge costs $0.86 per hour and, depending on the application, can handle hundreds to thousands of requests per second for a traditional web service or databases. A GPU instance, a p5.4xlarge with one H100, costs $6.88 per hour and can handle maybe low hundreds of requests per second for a ~30B parameter model. That’s almost 10x the hourly cost. On top of that we only get a fraction of the request throughput of the LLM inference compared to the traditional web workload. In aggregate, the cost per request for LLM inference in the example here is 100x higher than the traditional web service.
+
+And this estimate assumes a 30B model that fits on a single H100. For frontier models with hundreds of billions or trillions of parameters, you need multi-node setups, 8 GPUs per node, multiple nodes per model, just to serve a few hundred concurrent requests. The cost per request becomes astronomical relative to anything in the traditional web stack.
+
+There are optimization levers you can pull: Software and hardware optimization. On the software size, we have custom CUDA kernels, quantization, prefix caching, speculative decoding, KV-cache compression, sparse mixture-of-experts architectures. These all help to lower the costs for running LLMs, but they don’t close the fundamental hardware cost gap.
+
+Why Model Labs Have an Advantage
+
+What does narrow the hardware gap is owning or long-term leasing the machines instead of renting on-demand instances. Cloud reserved instances and committed-use contracts typically cost only a fraction of their on-demand counterparts. As of today (February 2026), you can get a 3-year reserved H100 from a neo-clould provider probably for a bit more an 1$ per hour, a 6x reduction from the AWS on-demand basis. But reserved capacity comes with a catch: you pay for it whether it’s in use or not. To handle spiky user demand, you need to overprovision and buy enough GPUs to cover peak traffic, which means paying for idle hardware during off-peak hours.
+
+The question then becomes: who can keep overprovisioned GPUs economically busy at 3 AM on a Sunday? The more workload types you can run on the same hardware, the less capacity sits idle. This creates a clear cost hierarchy:
+
+Model labs (Anthropic, OpenAI, etc): Most flexible. They can backfill idle capacity with training runs, research ablations, evaluations, and offline batch inference. When real-time demand drops at 3 AM or weekends, the GPUs switch to research or training jobs. The hardware is never truly idle, and the cost of the fleet gets amortized across all of these workloads.
+
+Large inference platforms (Together AI, Fireworks, AWS Bedrock): Still flexible. They serve dozens of models, so demand peaks for one model can coincide with troughs for another, smoothing utilization across the fleet. They can also offer discounted offline/overnight batch inference tiers, or even some fine-tuning jobs, to fill remaining gaps. What they lack is internal training and research workloads to absorb whatever slack remains.
+
+Enterprise self-hosting: Least flexible. A company running one or two models for themselves use has the narrowest workload mix. Peak and off-peak patterns are dictated by a single user base (often a single timezone), and there are no substitute workloads to absorb idle capacity. Either the GPUs sit idle nights and weekends, or the enterprise has to bite the price premium for on-demand instances.
+
+The further down this list you go, the higher your effective cost per inference request, because a larger share of your GPU-hours produce nothing. This is the structural moat that model labs enjoy: not better software or smarter engineers, but a deeper pool of workloads to keep expensive hardware utilized around the clock.
+
+Conclusion
+
+LLM inference economics come down to three things: how you batch requests determines the latency-throughput trade-off, that trade-off drives tiered pricing, and who can afford to overprovision GPU capacity determines who wins on cost.
+
+If you’re building on top of LLM APIs, the practical takeaway is straightforward: choose the tier that matches your latency requirements and budget. Batch your non-latency-sensitive workloads to the cheaper tiers. And if you’re thinking about self-hosting, understand that the economics only work if you can keep your GPUs busy around the clock, not just during peak hours.
+
+Thanks for reading! Subscribe for free to receive new posts and support my work.
+
+Subscribe
+
+29
+
+4
+
+1
+
+Share
+
+Discussion about this post
+
+CommentsRestacks
+
+ains
+
+Jun 20
+
+This was interesting. Enterprise compute should sublease their machines to companies in a different time zone. ha ha.
+
+Reply
+
+Share
+
+JP
+Mar 5
+
+The painter analogy for batch size tradeoffs clicked for me in a way the usual GPU utilisation charts don't. Your point about model labs backfilling idle capacity with training runs is exactly what I found when looking into who actually captures the money in inference. The companies that build and run models get to amortise hardware across workloads nobody else has. I dug into the broader economics here: https://medium.datadriveninvestor.com/who-profits-when-ai-models-are-free-b71ae03f4167
+
+Reply
+
+Share
+
+2 more comments...
+
+TopLatestDiscussions
+
+No posts
+
+Ready for more?
+
+Subscribe
+
+© 2026 Mathias Lechner · Privacy ∙ Terms ∙ Collection notice
+
+Start your SubstackGet the app
+
+Substack is the home for great culture

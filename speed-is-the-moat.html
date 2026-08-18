@@ -1,0 +1,966 @@
+<title>Is Speed the Moat?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root {
+    --ground:      #F6F7F9;
+    --surface:     #FFFFFF;
+    --surface-alt: #EDEFF3;
+    --ink:         #161A21;
+    --ink-soft:    #545C6B;
+    --ink-faint:   #838C9B;
+    --rule:        #DDE1E7;
+    --rule-strong: #C3CAD3;
+    --accent:      #9E2B3A;
+    --accent-soft: #F3E4E6;
+    --data-fast:   #1F4E79;
+    --data-slow:   #AAB3BF;
+    --ok:          #1F6B4A;
+    --warn:        #8A6212;
+
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body:    "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0F1218;
+      --surface:     #161B23;
+      --surface-alt: #1D242E;
+      --ink:         #E6E9EE;
+      --ink-soft:    #98A2B0;
+      --ink-faint:   #6B7686;
+      --rule:        #262D38;
+      --rule-strong: #38414F;
+      --accent:      #E4707E;
+      --accent-soft: #2C1B1F;
+      --data-fast:   #6FA8DC;
+      --data-slow:   #4A5361;
+      --ok:          #5CB98C;
+      --warn:        #D2A24C;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0F1218;
+    --surface:     #161B23;
+    --surface-alt: #1D242E;
+    --ink:         #E6E9EE;
+    --ink-soft:    #98A2B0;
+    --ink-faint:   #6B7686;
+    --rule:        #262D38;
+    --rule-strong: #38414F;
+    --accent:      #E4707E;
+    --accent-soft: #2C1B1F;
+    --data-fast:   #6FA8DC;
+    --data-slow:   #4A5361;
+    --ok:          #5CB98C;
+    --warn:        #D2A24C;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 43rem; margin: 0 auto; }
+  .wide { max-width: 58rem; margin: 0 auto; }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 3.5rem 0 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+    margin: 0 0 1.25rem;
+  }
+
+  .standfirst {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 38rem;
+  }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- gate strip ---------- */
+
+  .gate {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border: 1px solid var(--rule-strong);
+    background: var(--surface);
+    margin: 0 auto 3rem;
+    overflow: hidden;
+  }
+  .gate div {
+    flex: 1 1 7rem;
+    padding: 0.9rem 1rem;
+    border-right: 1px solid var(--rule);
+  }
+  .gate div:last-child { border-right: 0; }
+  .gate dt {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.3rem;
+  }
+  .gate dd {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+    line-height: 1;
+  }
+  .gate .verdict dd { color: var(--ok); }
+
+  /* ---------- prose ---------- */
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.55rem;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 3.5rem 0 0.35rem;
+  }
+  h2 .num {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    display: block;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: 0.005em;
+    margin: 2.25rem 0 0.35rem;
+  }
+
+  p { margin: 0 0 1.15rem; }
+  .wrap > p:first-of-type { margin-top: 1.25rem; }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  strong { font-weight: 600; }
+
+  .cid {
+    font-family: var(--mono);
+    font-size: 0.72em;
+    color: var(--ink-faint);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .num-hl {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  /* ---------- pull statement ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 0.15rem 0 0.15rem 1.25rem;
+    margin: 2rem 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.22rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  /* ---------- confidence chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+    vertical-align: 0.14em;
+  }
+  .chip.high { border-color: var(--ok); color: var(--ok); }
+  .chip.low  { border-color: var(--warn); color: var(--warn); }
+  .chip.contested { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- dispersion panel ---------- */
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    padding: 1.75rem 1.75rem 1.5rem;
+    margin: 2.5rem auto 3rem;
+  }
+  .panel-head {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.4rem;
+  }
+  .panel-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 0 0 1.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .group { margin-bottom: 1.75rem; }
+  .group:last-of-type { margin-bottom: 0.5rem; }
+  .group-label {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.7rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .group-label b {
+    font-weight: 600;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr 4.5rem;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+  }
+  .bar-row .who { color: var(--ink); font-weight: 500; }
+  .bar-track { background: var(--surface-alt); height: 1.35rem; position: relative; }
+  .bar-fill { height: 100%; background: var(--data-slow); }
+  .bar-fill.fast { background: var(--data-fast); }
+  .bar-row .val {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+  .panel-note {
+    font-family: var(--body);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 1.5rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- callout ---------- */
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    padding: 1.15rem 1.35rem;
+    margin: 2rem 0;
+  }
+  .callout p { margin: 0; font-size: 1rem; }
+  .callout p + p { margin-top: 0.75rem; }
+  .callout .label {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---------- lists ---------- */
+
+  ol.actions { counter-reset: act; list-style: none; padding: 0; margin: 1.5rem 0; }
+  ol.actions li {
+    counter-increment: act;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.85rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  ol.actions li:last-child { border-bottom: 1px solid var(--rule); }
+  ol.actions li::before {
+    content: counter(act);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.7;
+  }
+  ol.actions p { margin: 0; }
+  ol.actions b { font-family: var(--display); font-weight: 600; }
+
+  ul.plain { list-style: none; padding: 0; margin: 1.25rem 0; }
+  ul.plain li {
+    padding: 0.7rem 0 0.7rem 1.1rem;
+    border-top: 1px solid var(--rule);
+    position: relative;
+    font-size: 1rem;
+  }
+  ul.plain li:last-child { border-bottom: 1px solid var(--rule); }
+  ul.plain li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 1.35rem;
+    width: 0.4rem; height: 1px;
+    background: var(--rule-strong);
+  }
+
+  /* ---------- source ledger ---------- */
+
+  .ledger-scroll { overflow-x: auto; margin: 1.5rem 0; }
+  table.ledger {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    min-width: 34rem;
+  }
+  table.ledger th {
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.64rem;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 0 0.7rem 0.5rem 0;
+  }
+  table.ledger td {
+    padding: 0.55rem 0.7rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-soft);
+  }
+  table.ledger td.sid { color: var(--ink-faint); }
+  table.ledger td.title { color: var(--ink); font-family: var(--body); font-size: 0.88rem; line-height: 1.4; }
+  .tier {
+    display: inline-block;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.12rem 0.36rem;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink-soft);
+  }
+  .tier.t1 { border-color: var(--ok); color: var(--ok); }
+  .tier.t2 { border-color: var(--data-fast); color: var(--data-fast); }
+  .tier.t4 { border-color: var(--warn); color: var(--warn); }
+
+  details {
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    margin: 2.5rem 0;
+  }
+  summary {
+    cursor: pointer;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem 0;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "+ "; font-family: var(--mono); color: var(--accent); }
+  details[open] summary::before { content: "\2212 "; }
+  details > *:last-child { margin-bottom: 1.5rem; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 34rem) {
+    .bar-row { grid-template-columns: 5rem 1fr 3.6rem; gap: 0.5rem; font-size: 0.7rem; }
+    .panel { padding: 1.25rem 1rem; }
+    h2 { font-size: 1.35rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Verified research &middot; 33 sources &middot; 65 bound claims &middot; 18 Aug 2026</p>
+    <h1>Is speed the moat?</h1>
+    <p class="standfirst">
+      <strong>No &mdash; and the evidence against it got sharper on the second pass.</strong>
+      The dispersion in speed is large and persistent. But a lead inside it has a
+      measured half-life of one to two months, latency is already sold as a
+      contractual tier rather than won, and the one controlled experiment on
+      interactive latency found faster responses changed no behaviour and were judged
+      <em>worse</em>. What is left worth organising around is placement, not pace.
+    </p>
+  </header>
+</div>
+
+<div class="wide">
+  <dl class="gate">
+    <div class="verdict"><dt>Gate verdict</dt><dd>PASS</dd></div>
+    <div><dt>Sources</dt><dd>33</dd></div>
+    <div><dt>Claims bound</dt><dd>65</dd></div>
+    <div><dt>Hard failures</dt><dd>0</dd></div>
+    <div><dt>Gaps closed</dt><dd>4 of 6</dd></div>
+  </dl>
+</div>
+
+<div class="wrap">
+
+  <h2><span class="num">01</span>The premise needs one correction first</h2>
+
+  <p>
+    The thesis assumes cost is settled and speed is the successor axis. The first
+    half holds; the second does not follow.
+  </p>
+  <p>
+    Cost per unit of capability is collapsing on every available measure. Epoch AI
+    found the price of reaching a fixed capability milestone falling between
+    <span class="num-hl">9&times;</span> and <span class="num-hl">900&times;</span>
+    per year across six benchmarks, median <span class="num-hl">50&times;</span>
+    <span class="cid">[c-001]</span>, accelerating after January 2024 to a median of
+    <span class="num-hl">200&times;</span> <span class="cid">[c-002]</span>.
+    <strong>The sources disagree on the headline rate:</strong> a16z reports
+    <span class="num-hl">10&times;</span> per year <span class="cid">[c-004]</span>,
+    five times slower than Epoch's median. They measure different things &mdash; Epoch
+    regresses across capability milestones on six benchmarks, a16z tracks a single
+    MMLU-equivalence curve &mdash; and Epoch cautions its fastest rates may not persist
+    <span class="cid">[c-003]</span>. <span class="chip contested">contested</span>
+    Take the direction as settled and the magnitude as unsettled.
+  </p>
+  <p>
+    But &ldquo;understood&rdquo; is not &ldquo;finished&rdquo;. Price is still where
+    frontier vendors compete in public: OpenAI cut GPT-5.6 Terra by 20% and Luna by
+    80% in July 2026, three weeks after launch <span class="cid">[c-005]</span>, under
+    reported pressure from cost-sensitive buyers <span class="cid">[c-007]</span>,
+    attributing the cuts to capability and efficiency advancing together
+    <span class="cid">[c-006]</span>. OpenAI's own published price list confirms those
+    figures at <span class="num-hl">$0.20</span> and <span class="num-hl">$1.20</span>
+    per million tokens on the cheapest tier <span class="cid">[c-080]</span>.
+  </p>
+
+  <div class="pull">
+    Speed and cost are not sequential axes. They are two readings of the same curve.
+  </div>
+
+  <p>
+    On fixed hardware you cannot have both minimum latency and maximum throughput
+    <span class="cid">[c-025]</span>, and where a provider sits between them is a
+    commercial decision as much as a technical one <span class="cid">[c-026]</span>.
+    A speed programme that treats cost as solved will keep rediscovering that its
+    latency wins arrive as cost wins, and its cost wins arrive as latency losses.
+  </p>
+
+  <h2><span class="num">02</span>The spread is real &mdash; and larger than expected</h2>
+
+  <p>
+    For open-weight models served competitively, the gap between providers of
+    <em>identical weights</em> is not marginal. And for proprietary models it very
+    nearly vanishes. That contrast is the most decision-relevant finding here.
+  </p>
+</div>
+
+<div class="wide">
+  <section class="panel">
+    <p class="panel-head">Total response time &middot; lower is faster &middot; median, per Artificial Analysis</p>
+    <p class="panel-title">The same weights, served two ways</p>
+
+    <div class="group">
+      <p class="group-label">
+        <span>Gemma 4 31B &middot; 131k context &middot; open weights</span>
+        <b>5.6&times; spread</b>
+      </p>
+      <div class="bar-row">
+        <span class="who">Cerebras</span>
+        <span class="bar-track"><span class="bar-fill fast" style="width:18%"></span></span>
+        <span class="val">2.43s</span>
+      </div>
+      <div class="bar-row">
+        <span class="who">SambaNova</span>
+        <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+        <span class="val">13.49s</span>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">
+        <span>Qwen3.6 27B &middot; open weights</span>
+        <b>8.1&times; spread</b>
+      </p>
+      <div class="bar-row">
+        <span class="who">Groq</span>
+        <span class="bar-track"><span class="bar-fill fast" style="width:12.4%"></span></span>
+        <span class="val">14.58s</span>
+      </div>
+      <div class="bar-row">
+        <span class="who">DeepInfra</span>
+        <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+        <span class="val">117.94s</span>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">
+        <span>Claude Opus 5 (max) &middot; proprietary &middot; three resellers</span>
+        <b>1.4&times; spread</b>
+      </p>
+      <div class="bar-row">
+        <span class="who">Bedrock</span>
+        <span class="bar-track"><span class="bar-fill fast" style="width:72.8%"></span></span>
+        <span class="val">44.88s</span>
+      </div>
+      <div class="bar-row">
+        <span class="who">Anthropic</span>
+        <span class="bar-track"><span class="bar-fill fast" style="width:88.5%"></span></span>
+        <span class="val">54.58s</span>
+      </div>
+      <div class="bar-row">
+        <span class="who">Google</span>
+        <span class="bar-track"><span class="bar-fill fast" style="width:100%"></span></span>
+        <span class="val">61.68s</span>
+      </div>
+    </div>
+
+    <p class="panel-note">
+      Bars are normalised within each model group, not across groups. The Qwen pair is
+      not like-for-like &mdash; DeepInfra's endpoint is an FP8 quantisation at 262k context
+      <span class="cid">[c-013]</span>. Claims <span class="cid">c-010</span>&ndash;<span class="cid">c-019</span>.
+      All figures come from a single point-in-time snapshot of one benchmarker.
+    </p>
+  </section>
+</div>
+
+<div class="wrap">
+  <p>
+    The brief set <span class="num-hl">2&times;</span> as the floor below which a speed
+    advantage stops being strategically interesting. Open weights clear it by three to
+    four times over <span class="cid">[c-101]</span>; proprietary models fall below it
+    <span class="cid">[c-102]</span>. So the size of the prize turns on a structural
+    question rather than a technical one: <strong>can you choose who serves the
+    weights?</strong>
+  </p>
+
+  <p>
+    <span class="chip">moderate</span> <span class="chip low">low on proprietary</span>
+    Every cross-provider number above rests on one source. It publishes its method, but
+    it is one source. Its output-speed metric excludes the initial wait, measuring
+    tokens/sec only after the first token <span class="cid">[c-015]</span>; figures are
+    medians over a trailing 72 hours <span class="cid">[c-016]</span>; and its
+    time-to-first-token includes network latency from a single test location, which it
+    acknowledges can advantage providers by geography <span class="cid">[c-017]</span>.
+    If that source is wrong, this section has no answer.
+  </p>
+
+  <h2><span class="num">03</span>A lead does not persist &mdash; where the thesis breaks</h2>
+
+  <p>
+    The optimisations that once separated a fast serving stack from a slow one &mdash;
+    chunked prefill, prefix caching, speculative decoding, disaggregated prefill/decode
+    &mdash; are now listed as standard features of open-source vLLM
+    <span class="cid">[c-024]</span>. The frontier moves in &ldquo;incremental releases
+    that can be just days apart&rdquo; <span class="cid">[c-020]</span>, fast enough
+    that SemiAnalysis states point-in-time benchmarks go stale and stop representing
+    achievable performance <span class="cid">[c-021]</span>. The industry's answer was
+    not better benchmarks but nightly ones, across hundreds of chips
+    <span class="cid">[c-022]</span>.
+  </p>
+
+  <div class="pull">
+    A lead that diffuses in days is not a moat. It erodes faster than any procurement
+    cycle can re-evaluate it. <span class="chip high">high</span>
+  </div>
+
+  <p>
+    <strong>That erosion now has a number attached.</strong> A second benchmark, run
+    independently of the first, recorded AMD's inference software improving by up to
+    <span class="num-hl">2&times;</span> between December 2025 and January 2026
+    <span class="cid">[c-070]</span> &mdash; and nearly doubling throughput at equal
+    interactivity in under two months <span class="cid">[c-071]</span>, on unchanged
+    silicon. The half-life of a software-derived speed lead is therefore measurable,
+    and it is roughly <strong>one to two months</strong>
+    <span class="cid">[c-112]</span>. That is the single most decision-relevant number
+    here: shorter than most procurement cycles, shorter than most architecture reviews,
+    and far shorter than the horizon on which &ldquo;moat&rdquo; is normally used. The
+    same source independently reproduces the structural finding that inference
+    performance is a throughput-against-latency curve rather than a single number
+    <span class="cid">[c-072]</span>.
+  </p>
+
+  <p>
+    Two candidate exceptions, both on thin evidence from a single practitioner source.
+    Custom silicon reaches a low-latency tier GPU providers cannot match by tuning batch
+    size alone, while occupying &ldquo;a distinct and expensive corner&rdquo;
+    <span class="cid">[c-028]</span>. And model labs hold a structural cost advantage by
+    backfilling idle capacity with training and research
+    <span class="cid">[c-027]</span>. The custom-silicon argument is the strongest case
+    against this report's conclusion, and it cannot be settled here &mdash; the only
+    source making it is the source qualifying it.
+  </p>
+
+  <div class="callout">
+    <span class="label">Provenance worth knowing</span>
+    <p>
+      In this corpus, the exact phrase <strong>&ldquo;Speed is the moat&rdquo;</strong>
+      is a quote from AMD's VP of GPU Software in a benchmark launch post
+      <span class="cid">[c-023]</span><span class="cid">[c-109]</span>. Nvidia's framing
+      of the very same benchmark stresses performance per dollar and per megawatt rather
+      than latency leadership <span class="cid">[c-029]</span>.
+    </p>
+    <p>
+      When the two largest GPU vendors describe identical results and one says speed
+      while the other says efficiency, the framing is positioning, not physics.
+    </p>
+  </div>
+
+  <h2><span class="num">04</span>&ldquo;Same budget, one day vs one month&rdquo;</h2>
+
+  <p>
+    This is the best-evidenced part of the thesis &mdash; and it is documented as a
+    product tier rather than as an achievement. Anthropic's batch API charges 50% of
+    standard prices, most batches finishing under an hour
+    <span class="cid">[c-030]</span>, with results at completion or 24 hours, whichever
+    comes first <span class="cid">[c-031]</span>. OpenAI's is the same trade in the same
+    shape <span class="cid">[c-032]</span>. Even inside that window a single 300k-token
+    generation can exceed an hour <span class="cid">[c-033]</span>.
+  </p>
+
+  <div class="pull">
+    Identical work, identical model: half the budget, and a wall clock that moves from
+    seconds to a day. <span class="chip high">high</span>
+  </div>
+
+  <p>
+    The structure of your claim is confirmed. The magnitude is not &mdash; the documented
+    ceiling is <span class="num-hl">24 hours</span> per batch
+    <span class="cid">[c-031]</span><span class="cid">[c-032]</span>, and nothing found
+    here supports a one-month figure for the same task at the same budget.
+  </p>
+  <p>
+    <strong>A counter-signal deserves attention.</strong> The purchasable priority tier
+    is being withdrawn rather than expanded: Anthropic states Priority Tier capacity
+    commitments are no longer available for purchase <span class="cid">[c-035]</span>.
+    If buying latency were a growing market, that is not the move you would expect.
+  </p>
+  <p>
+    Where speed genuinely compounds is agentic work, which multiplies sequential model
+    calls per task &mdash; around 41 turns for an office-work trace, up to 200 tool-call
+    turns for code QA <span class="cid">[c-036]</span><span class="cid">[c-039]</span>
+    &mdash; with heavy tails at every step <span class="cid">[c-037]</span>. That
+    multiplication is how a per-token rate becomes hours of wall clock
+    <span class="cid">[c-108]</span>.
+  </p>
+  <h3>The interactive case, now that there is real evidence</h3>
+
+  <p>
+    The most-repeated evidence that latency costs revenue &mdash; Amazon's
+    &ldquo;100ms = 1% of sales&rdquo; &mdash; is an e-commerce page-load result recycled
+    into AI latency marketing, not a measurement of LLM inference
+    <span class="cid">[c-038]</span><span class="cid">[c-106]</span>.
+  </p>
+  <p>
+    <span class="chip contested">contested</span> There is now a direct test, and the
+    sources genuinely disagree. A controlled experiment published at CHI 2026 varied
+    time-to-first-token across <span class="num-hl">2</span>,
+    <span class="num-hl">9</span> and <span class="num-hl">20</span> seconds for 240
+    participants across two knowledge-task types <span class="cid">[c-050]</span>.
+    Interaction behaviour was <strong>robust to latency</strong> &mdash; prompting,
+    copying and refreshing rates did not shift across conditions, while task type did
+    drive behaviour <span class="cid">[c-051]</span>.
+  </p>
+
+  <div class="pull">
+    The perception effect ran backwards: 2-second responses were rated
+    <em>less thoughtful and less useful</em> than 9&ndash;20-second ones.
+    <span class="chip high">high</span>
+  </div>
+
+  <p>
+    Participants appeared to read delay as deliberation, and the authors conclude that
+    latency is not simply a cost to minimise but a tunable design variable
+    <span class="cid">[c-052]</span><span class="cid">[c-053]</span>. One experiment on
+    knowledge tasks does not generalise to voice agents, trading, or anything with a
+    hard real-time constraint, and it says nothing about the 30-second-plus waits
+    agentic work produces. But within the band it tested, the best available evidence
+    contradicts the folklore it replaces <span class="cid">[c-110]</span>. The
+    throughput case is well-evidenced. The interactive-latency case is not merely
+    unproven &mdash; it is actively contested by the only controlled study in this
+    corpus.
+  </p>
+
+  <h2><span class="num">05</span>Speed <em>is</em> governed &mdash; at the platform layer</h2>
+
+  <p>
+    Managing AI spend is now near-universal: 98% of 1,192 State of FinOps respondents, up
+    from 31% two years earlier <span class="cid">[c-040]</span>. The priorities that
+    displaced pure cost optimisation are governance, forecasting, organisational alignment
+    and expanding coverage <span class="cid">[c-041]</span>, with mature practice moving
+    toward unit economics and technology selection <span class="cid">[c-042]</span>.
+  </p>
+  <p>
+    Latency and throughput do not appear in that list &mdash; but that is
+    absence-of-mention in one summary of one survey, not a measured finding.
+  </p>
+  <p>
+    <strong>The contractual evidence answers the question directly, and it answers it
+    against the thesis.</strong> Microsoft's deployment-type documentation carries an
+    explicit <em>Latency Service Level Agreement</em> column: Priority processing and
+    Provisioned deployments both carry a defined latency target per model
+    <span class="cid">[c-060]</span>, while Standard deployments carry none at all
+    <span class="cid">[c-061]</span>.
+  </p>
+
+  <div class="pull">
+    Latency is not an ungoverned metric leaders failed to notice. It is a priced,
+    tiered contract term &mdash; and the cheap tier is where you forfeit it.
+    <span class="chip high">high</span>
+  </div>
+
+  <p>
+    So the premise needs revising rather than confirming. Speed is not an unclaimed
+    strategic axis waiting for an owner; it is a solved commercial problem at the
+    platform layer that many buyers have simply not exercised
+    <span class="cid">[c-111]</span>. That is a different problem with a different fix
+    &mdash; a procurement and placement decision, not a research programme. What remains
+    genuinely unverified is the <em>enterprise</em> layer: whether buying organisations
+    set internal latency SLOs and hold vendors to them.
+  </p>
+  <p>
+    There is a counter-signal at the benchmark layer: MLPerf v5.1 expanded
+    latency-constrained interactive scenarios explicitly for agentic applications
+    <span class="cid">[c-043]</span>, drawing a record 27 submitters
+    <span class="cid">[c-044]</span>. Speed is being standardised where vendors are
+    measured, whatever is happening inside enterprise governance
+    <span class="cid">[c-107]</span>.
+  </p>
+
+  <h2><span class="num">06</span>What follows for the decision</h2>
+
+  <p>
+    Speed deserves an owner, but a procurement one rather than a research one. Not a
+    team chasing the fastest provider &mdash; that lead has a one-to-two-month half-life
+    <span class="cid">[c-112]</span> and the chase never ends. A function that owns
+    <em>placement</em>: which workloads sit on which contractual tier, given that the
+    tiers already exist and already price latency
+    <span class="cid">[c-060]</span><span class="cid">[c-061]</span>.
+  </p>
+
+  <ol class="actions">
+    <li><p><b>Classify workloads by tier before comparing vendors.</b> The
+      batch/standard/priority split is where the largest wall-clock difference for a fixed
+      budget actually lives <span class="cid">[c-030]</span><span class="cid">[c-032]</span>,
+      and it is available today without changing provider.</p></li>
+    <li><p><b>Treat open-weight vs proprietary as the gate.</b> Speed shopping pays 5&ndash;8&times;
+      on open weights <span class="cid">[c-101]</span> and roughly nothing on proprietary
+      models <span class="cid">[c-102]</span>. Model-class choice determines whether a speed
+      programme has anything to work with at all.</p></li>
+    <li><p><b>Budget for re-evaluation, not for a winner.</b> Any benchmark you run goes
+      stale quickly <span class="cid">[c-021]</span>. The sustainable version is recurring
+      re-measurement against your own workload, not a vendor selection defended for a
+      year.</p></li>
+    <li><p><b>Buy the latency you need, and stop paying for the rest.</b> A latency
+      target is a contract term you can already ask for <span class="cid">[c-060]</span>;
+      on the standard tier there is no guarantee to enforce
+      <span class="cid">[c-061]</span>. Most organisations are on the ungoverned tier by
+      default rather than by decision.</p></li>
+    <li><p><b>Do not assume faster is better in the interface.</b> Within 2&ndash;20
+      seconds on knowledge tasks, faster changed no behaviour and read as <em>less</em>
+      thoughtful <span class="cid">[c-052]</span>. Spend the latency budget where it
+      compounds &mdash; agentic loops with dozens of sequential turns
+      <span class="cid">[c-036]</span><span class="cid">[c-108]</span> &mdash; not on
+      shaving an interactive response users may not reward.</p></li>
+  </ol>
+
+  <h2><span class="num">&mdash;</span>Limitations, honestly</h2>
+
+  <p>
+    A first pass carried six gaps. Four were closed by further gathering &mdash; and two
+    of those closures changed the answer rather than merely supporting it. What follows
+    is what actually remains.
+  </p>
+
+  <ul class="plain">
+    <li><strong>Still single-source at the API-provider layer.</strong> Every
+      cross-provider figure comes from one snapshot of one benchmarker. The corroborating
+      benchmark <span class="cid">[c-070]</span><span class="cid">[c-072]</span> measures
+      <em>hardware and serving stacks</em>, not API endpoints, so it confirms the shape of
+      the finding and the existence of large dispersion &mdash; it does not independently
+      confirm the specific figure between two named providers.</li>
+    <li><strong>The latency experiment is narrow.</strong> It covers 2&ndash;20 second
+      time-to-first-token on knowledge tasks with crowdsourced participants
+      <span class="cid">[c-050]</span>. It is the best evidence in this corpus and it does
+      not settle voice, real-time, or long-horizon agentic work.</li>
+    <li><strong>The enterprise governance layer is still unverified.</strong> Platforms
+      sell latency contractually <span class="cid">[c-060]</span>; whether buying
+      organisations set and enforce internal latency SLOs would need procurement
+      contracts this project did not obtain.</li>
+    <li><strong>No measured diffusion interval for a named technique.</strong> There is
+      now a rate of improvement <span class="cid">[c-070]</span><span class="cid">[c-071]</span>,
+      which is not the same as timing one specific optimisation from paper to commodity
+      default. That original question is still open.</li>
+    <li><strong>No independent auditor pass.</strong> Claims were bound by exact quote and
+      mechanically quote-checked against snapshots, but no fresh-context reviewer confirmed
+      the quotes mean what the claims need them to mean.</li>
+    <li><strong>Out of scope by design:</strong> organisational execution speed, training
+      speed, model quality rankings, GPU supply-chain economics, self-hosted serving, and
+      any specific vendor recommendation.</li>
+  </ul>
+
+  <div class="callout">
+    <span class="label">Closed since the first pass</span>
+    <p>
+      First-party OpenAI pricing now corroborates the reported July 2026 figures
+      <span class="cid">[c-080]</span>; the erosion rate has a number
+      <span class="cid">[c-112]</span>; the interactive-latency question has a controlled
+      experiment instead of folklore <span class="cid">[c-050]</span>; sub-question 5 has a
+      contractual answer <span class="cid">[c-111]</span>; and the source that captured
+      only navigation was re-captured successfully.
+    </p>
+  </div>
+
+  <h3>What would change the answer</h3>
+  <p>
+    The conclusion flips toward &ldquo;speed is a moat&rdquo; if the custom-silicon tier
+    proves unreachable by GPU batch tuning across multiple model generations
+    <span class="cid">[c-028]</span>, rather than being a temporary and expensive corner
+    &mdash; that is the one structural argument this corpus cannot close. It flips further
+    away if the open-weight spread <span class="cid">[c-101]</span> turns out to be an
+    artefact of one benchmarker's test geography or prompt mix
+    <span class="cid">[c-017]</span>.
+  </p>
+  <p>
+    The finding most likely to be overturned by better evidence is the interactive-latency
+    reversal <span class="cid">[c-052]</span> &mdash; a single experiment, where a second
+    study finding the opposite would restore the conventional view. The finding least
+    likely to be overturned is the erosion rate <span class="cid">[c-112]</span>: two
+    independent benchmarks, measuring different layers, both report software gains arriving
+    faster than procurement can respond.
+  </p>
+
+  <details>
+    <summary>Source ledger &mdash; 23 captured sources</summary>
+    <p style="font-size:0.92rem;color:var(--ink-soft);margin-top:0">
+      Every claim in this report binds to a snapshot of one of these, at a quote locator
+      checked mechanically against the captured bytes. Tiers follow the technical lens:
+      T1 the artifact itself, T2 first-party docs and reproducible benchmarks, T3
+      independent practitioner reporting, T4 vendor and marketing material.
+    </p>
+    <div class="ledger-scroll">
+      <table class="ledger">
+        <thead>
+          <tr><th>ID</th><th>Tier</th><th>Publisher</th><th>Title</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sid">s-001</td><td><span class="tier t2">T2</span></td><td>Epoch AI</td><td class="title"><a href="https://epoch.ai/data-insights/llm-inference-price-trends">LLM inference prices have fallen rapidly but unequally across tasks</a></td></tr>
+          <tr><td class="sid">s-002</td><td><span class="tier t2">T2</span></td><td>Artificial Analysis</td><td class="title"><a href="https://artificialanalysis.ai/methodology/performance-benchmarking">Language Model API Performance Benchmarking (Methodology)</a></td></tr>
+          <tr><td class="sid">s-003</td><td><span class="tier t4">T4</span></td><td>Andreessen Horowitz</td><td class="title"><a href="https://a16z.com/llmflation-llm-inference-cost/">Welcome to LLMflation</a></td></tr>
+          <tr><td class="sid">s-004</td><td><span class="tier">T3</span></td><td>mlechner</td><td class="title"><a href="https://mlechner.substack.com/p/the-economics-of-llm-inference-batch">The Economics of LLM Inference: Batch Sizes, Latency Tiers</a></td></tr>
+          <tr><td class="sid">s-005</td><td><span class="tier t2">T2</span></td><td>MLCommons</td><td class="title"><a href="https://mlcommons.org/2025/09/mlperf-inference-v5-1-results/">MLPerf Inference v5.1 Benchmark Results</a></td></tr>
+          <tr><td class="sid">s-006</td><td><span class="tier t2">T2</span></td><td>vLLM project</td><td class="title"><a href="https://vllm.ai/blog/2025-09-05-anatomy-of-vllm">Inside vLLM: Anatomy of a High-Throughput Inference System</a></td></tr>
+          <tr><td class="sid">s-007</td><td><span class="tier">T3</span></td><td>Inclusion AI</td><td class="title"><a href="https://www.inclusion-ai.org/blog/llm-landscape-vllm-sgl/">The Community Stories of vLLM and SGLang</a></td></tr>
+          <tr><td class="sid">s-008</td><td><span class="tier">T3</span></td><td>Applied Compute</td><td class="title"><a href="https://www.appliedcompute.com/research/inference-benchmark">Benchmarking Inference Engines on Agentic Workloads</a></td></tr>
+          <tr><td class="sid">s-009</td><td><span class="tier">T3</span></td><td>FinOps Weekly</td><td class="title">AI Cost Management &amp; FinOps: From Executive Blind Spots to Governance</td></tr>
+          <tr><td class="sid">s-010</td><td><span class="tier t4">T4</span></td><td>GMI Cloud</td><td class="title">Fastest Open Model Inference &mdash; <em>capture failed, unused</em></td></tr>
+          <tr><td class="sid">s-011</td><td><span class="tier t2">T2</span></td><td>arXiv</td><td class="title"><a href="https://arxiv.org/abs/2606.26959">The Shift to Agentic AI: Evidence from Codex</a></td></tr>
+          <tr><td class="sid">s-012</td><td><span class="tier t1">T1</span></td><td>OpenAI</td><td class="title"><a href="https://platform.openai.com/docs/guides/batch">OpenAI Batch API guide</a></td></tr>
+          <tr><td class="sid">s-013</td><td><span class="tier t1">T1</span></td><td>Anthropic</td><td class="title"><a href="https://docs.claude.com/en/docs/build-with-claude/batch-processing">Batch processing &mdash; Claude Docs</a></td></tr>
+          <tr><td class="sid">s-014</td><td><span class="tier t2">T2</span></td><td>Artificial Analysis</td><td class="title"><a href="https://artificialanalysis.ai/leaderboards/providers">LLM API Provider Leaderboard</a></td></tr>
+          <tr><td class="sid">s-015</td><td><span class="tier t4">T4</span></td><td>Dataiku</td><td class="title">7 best LLM tools for businesses in 2026</td></tr>
+          <tr><td class="sid">s-016</td><td><span class="tier">T3</span></td><td>CNBC</td><td class="title"><a href="https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html">OpenAI cuts prices for two of its GPT-5.6 AI models</a></td></tr>
+          <tr><td class="sid">s-017</td><td><span class="tier t4">T4</span></td><td>Alhena AI</td><td class="title">E-commerce Latency: 100ms = 1% Revenue Lost</td></tr>
+          <tr><td class="sid">s-018</td><td><span class="tier t2">T2</span></td><td>Linux / FinOps Foundation</td><td class="title"><a href="https://www.linuxfoundation.org/press/state-of-finops-survey-ai-value-and-skills-top-priorities-as-finops-matures-across-technology-value-98-manage-ai-90-saas-64-licensing-48-data-center-1">State of FinOps Survey 2026</a></td></tr>
+          <tr><td class="sid">s-019</td><td><span class="tier">T3</span></td><td>Constellation Research</td><td class="title">Nvidia GTC 2026: hardware strategy beyond the GPU</td></tr>
+          <tr><td class="sid">s-020</td><td><span class="tier t4">T4</span></td><td>Tech Times</td><td class="title">Custom AI Chips Outpace Nvidia GPU Growth in 2026</td></tr>
+          <tr><td class="sid">s-021</td><td><span class="tier t1">T1</span></td><td>Anthropic</td><td class="title"><a href="https://docs.claude.com/en/api/service-tiers">Service tiers &mdash; Claude API docs</a></td></tr>
+          <tr><td class="sid">s-022</td><td><span class="tier t2">T2</span></td><td>SemiAnalysis</td><td class="title"><a href="https://newsletter.semianalysis.com/p/inferencemax-open-source-inference">InferenceMAX: Open Source Inference Benchmarking</a></td></tr>
+          <tr><td class="sid">s-023</td><td><span class="tier t4">T4</span></td><td>Together AI</td><td class="title">Together AI delivers fastest inference for top open-source models</td></tr>
+          <tr><td class="sid">s-024</td><td><span class="tier t2">T2</span></td><td>arXiv / CHI 2026</td><td class="title"><a href="https://arxiv.org/html/2604.06183">The Impact of Response Latency and Task Type on Human-LLM Interaction and Perception</a></td></tr>
+          <tr><td class="sid">s-025</td><td><span class="tier t1">T1</span></td><td>Microsoft</td><td class="title"><a href="https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/latency">Azure OpenAI performance &amp; latency</a></td></tr>
+          <tr><td class="sid">s-026</td><td><span class="tier t1">T1</span></td><td>arXiv / SOSP 2023</td><td class="title"><a href="https://arxiv.org/abs/2309.06180">Efficient Memory Management for LLM Serving with PagedAttention</a></td></tr>
+          <tr><td class="sid">s-027</td><td><span class="tier t1">T1</span></td><td>Microsoft</td><td class="title">Azure OpenAI provisioned throughput concepts (docs source)</td></tr>
+          <tr><td class="sid">s-028</td><td><span class="tier t2">T2</span></td><td>SemiAnalysis</td><td class="title"><a href="https://newsletter.semianalysis.com/p/inferencex-v2-nvidia-blackwell-vs">InferenceX v2: NVIDIA Blackwell vs AMD vs Hopper</a></td></tr>
+          <tr><td class="sid">s-029</td><td><span class="tier">T3</span></td><td>Tom's Hardware</td><td class="title">InferenceMax tests software stacks, efficiency, and TCO</td></tr>
+          <tr><td class="sid">s-030</td><td><span class="tier t1">T1</span></td><td>OpenAI</td><td class="title">OpenAI API pricing &mdash; <em>HTML route, navigation only</em></td></tr>
+          <tr><td class="sid">s-031</td><td><span class="tier t1">T1</span></td><td>vLLM project</td><td class="title"><a href="https://github.com/vllm-project/vllm/releases">Releases &mdash; vllm-project/vllm</a></td></tr>
+          <tr><td class="sid">s-032</td><td><span class="tier t1">T1</span></td><td>OpenAI</td><td class="title"><a href="https://platform.openai.com/docs/pricing">OpenAI API pricing (markdown route)</a></td></tr>
+          <tr><td class="sid">s-033</td><td><span class="tier t4">T4</span></td><td>GMI Cloud</td><td class="title">Fastest Open Model Inference (successful re-capture of s-010)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <footer>
+    Workspace: <code>.research/</code> &mdash; brief.md, lens.yaml, sources.jsonl,
+    snapshots/, claims.jsonl, synthesis.md, report.md, verification-report.md<br>
+    Gate: PASS &middot; 0 hard failures &middot; 28 advisory warnings &middot; 65 of 65 claims cited<br>
+    Two passes: 23 sources / 52 claims, then 33 sources / 65 claims after gap-fixing<br>
+    Lens: technical, with a market overlay on the pricing and governance sub-questions.
+    Recency tightened to 12 months for any latency, throughput or price figure.
+  </footer>
+</div>

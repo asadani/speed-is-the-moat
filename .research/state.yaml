@@ -1,0 +1,37 @@
+phase: reported
+question: >
+  Now that per-token cost is broadly understood and largely commoditised, does
+  inference speed (latency and throughput) constitute a durable differentiator --
+  a moat -- for LLM systems, or is it a lead that erodes as fast as it is won?
+lens: technical
+lens_note: technical primary, market overlay for sub-questions 1 and 5
+started: 2026-08-18T00:00:00Z
+updated: 2026-08-18T00:00:00Z
+passes:
+  - first pass: 23 sources, 52 claims, PASS, 6 named gaps
+  - gap-fixing pass: 33 sources, 65 claims, PASS, 4 gaps closed
+verdict: PASS
+counts:
+  sources: 33
+  claims: 65
+  claims_cited: 65
+  hard_failures: 0
+  warnings: 28
+subquestions:
+  sq1: Has token cost actually commoditised? -- answered, first-party pricing added
+  sq2: How large is the measured speed spread? -- answered, still single-source at API layer
+  sq3: Does a speed lead persist or erode? -- answered, erosion now measured at 1-2 months
+  sq4: Does speed convert into outcomes? -- answered; interactive case REVERSED by CHI 2026 experiment
+  sq5: Do organisations govern speed as an axis? -- ANSWERED; latency is a contractual SLA term
+gaps_closed:
+  - Independent study on LLM latency and user behaviour (CHI 2026 controlled experiment)
+  - SQ5 governance, answered via platform latency SLA documentation
+  - Measured erosion rate (2x software gain in 1-2 months on fixed hardware)
+  - First-party OpenAI pricing (reached via docs markdown route after 403)
+  - s-010 navigation-only capture re-captured as s-033
+remaining_gaps:
+  - API-provider spread still rests on a single benchmarker (s-014)
+  - Latency experiment covers only 2-20s TTFT on knowledge tasks
+  - Enterprise-layer latency SLO practice unverified (needs procurement contracts)
+  - No single named optimisation timed from paper to commodity default
+  - claim-auditor agent not dispatched; all bindings are mechanical quote-matches

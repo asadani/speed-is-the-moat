@@ -1,0 +1,151 @@
+Tech
+
+Science
+
+Business Tech
+
+Health
+
+Culture
+
+Deals & Reviews
+
+Sign In
+
+Account
+
+Manage Account
+
+Logout
+
+Home
+
+Tech
+
+Artificial Intelligence
+
+Custom AI Chips Outpace Nvidia GPU Growth in 2026: ASIC Shipments Set to Triple GPU Rate
+
+TrendForce data shows custom ASIC shipments growing at nearly triple the rate of merchant GPUs in 2026.
+
+By
+
+Kyle Belmonte
+
+Published: May 26 2026, 11:52 AM EDT
+
+Share on Facebook
+Share on Twitter
+Share on LinkedIn
+Share on Reddit
+Share on Flipboard Share on Pocket
+
+Alchip.com
+
+Alchip Technologies Chairman and CEO Johnny Shen said Tuesday that he expects revenue growth from custom application-specific integrated circuits to outrun the broader GPU market — a forecast aligned with independent research from TrendForce showing that custom AI chip shipments from cloud providers are on track to grow 44.6% in 2026, against a 16.1% growth rate for merchant GPU shipments. That gap — nearly three to one — marks the first year in the AI era that custom silicon has meaningfully outpaced general-purpose graphics processors in shipment growth, and it signals a structural shift in how the world's largest technology companies are building AI infrastructure.
+
+Shen's comments, reported by Digitimes on May 26, come as Alchip prepares for what the company is calling its most significant production ramp since its founding. After a difficult 2025 — in which full-year revenue dropped from $1.6 billion to approximately $992 million, largely because the company missed one product generation from its largest customer — Alchip is forecasting a return to growth in 2026 as new 3-nanometer AI accelerator programs begin volume shipments in the second quarter. The company guides that roughly 80% of its 2026 revenue will land in the second half, driven by that production ramp.
+
+Why Hyperscalers Choose Custom Silicon Over Nvidia GPUs
+
+The economic logic behind the shift is straightforward. Nvidia's GPUs are general-purpose processors: powerful, flexible, and built to handle nearly any AI workload, but not optimized for any single one. As AI inference — the ongoing task of running trained models against live queries — has overtaken training as the dominant compute workload, that flexibility carries an unjustified cost. Industry analysis from SemiAnalysis and Bernstein, cited by multiple independent researchers, estimates that application-specific integrated circuits offer a 40–65% total cost of ownership advantage over merchant silicon alternatives in large-scale, multi-year inference deployments.
+
+Midjourney, the generative AI image platform, provided perhaps the most concrete public validation of that math when it reported cutting monthly compute costs from approximately $2.1 million to $700,000 after moving inference workloads from Nvidia GPUs to Google's seventh-generation Tensor Processing Units — a 65% reduction. Extrapolated across hyperscaler fleets running billions of daily queries, the incentive to invest billions in custom silicon becomes, as one analyst put it, a straightforward financial calculation.
+
+This is precisely why Google, Amazon, Microsoft, and Meta have each committed billions of dollars to in-house AI chip programs. Google's Ironwood TPU, Amazon's Trainium series, Microsoft's Maia 200, and Meta's MTIA accelerators are all custom application-specific chips that reduce their builders' dependence on Nvidia hardware and optimize for the specific model architectures and inference patterns each company runs at scale.
+
+Read more:
+AI Chip Wars: How AI Processors, NVIDIA AI Chips, and Custom Silicon Became Big Tech's New Battleground
+
+Alchip's Market Projections and Revenue Trajectory
+
+Shen's market outlook calls for AI application-specific integrated circuit revenues to grow from roughly $13 billion in 2024 to more than $150 billion by 2030, a compound annual growth rate approaching 50%. The data center ASIC segment more broadly, encompassing all custom silicon for AI server applications, is forecast by industry analysts to reach $50–70 billion by 2028, with custom ASIC shipments expected to roughly triple between 2024 and 2027.
+
+Alchip is positioned at a specific, specialized tier of that market. Founded in 2003 and headquartered in Taipei, the company is a founding member of TSMC's OIP 3DFabric Alliance and operates exclusively at the leading edge of semiconductor manufacturing. In 2025, 87% of its revenue came from devices fabricated at process nodes of 7 nanometers or below, including 73% at 7nm and 5nm and a growing 14% at 3nm and 2nm. North America — primarily Tier 1 cloud service providers — accounted for 78% of 2025 revenue.
+
+Shen characterized 2025 as a transitional year. In the company's FY2025 earnings release, he cited the "rapid expansion of artificial intelligence infrastructure and high-performance computing" as the driver of continued accelerating demand, and said hyperscale and cloud customers are "increasingly looking to custom silicon to achieve the performance, power efficiency, and system-level optimization required for next-generation AI workloads." High-performance computing and AI applications together account for 83% of Alchip's revenue base.
+
+What This Means for Nvidia's Market Position
+
+The outperformance of custom chip shipments carries clear implications for Nvidia, whose GPU dominance made it the defining semiconductor company of the AI era. Nvidia still holds roughly 70–80% of the AI accelerator market by revenue, and its Blackwell and upcoming Vera Rubin architectures keep it well ahead of merchant rivals AMD and Intel on performance benchmarks. The CUDA software ecosystem, built over more than a decade, remains a powerful lock-in for training workloads and for organizations that run diverse AI tasks across the same infrastructure.
+
+The structural challenge is concentrated at the inference layer. As custom ASICs reach full production scale at Google, Amazon, Microsoft, and Meta — all of which are simultaneously Nvidia's largest customers — procurement budgets increasingly divert toward internally designed chips that do not generate revenue for Nvidia. TrendForce's 44.6% versus 16.1% growth projection for 2026 reflects this diversion already in progress. ASIC-based AI server shipments are projected to reach 27.8% of the total AI server market this year, the highest share since 2023.
+
+Evercore analysts, in research circulated in May 2026, described the current environment as an "inference-led regime" in which buying criteria have shifted "from max throughput and bandwidth to cost-per-token, power, cooling, utilization, and total cost of ownership" — all dimensions where purpose-built silicon has a structural advantage over general-purpose GPUs.
+
+ASIC Co-Design Market: Broadcom, Marvell, MediaTek, and Alchip's Role
+
+The hyperscalers are designing the chips, but they are not building them alone. Broadcom and Marvell together control an estimated 95% of the custom AI ASIC co-design market, serving as the engineering partners that translate hyperscaler chip specifications into manufacturable silicon. Broadcom, which co-designs Google's Tensor Processing Units and chips for Meta and other customers, reported $8.4 billion in AI semiconductor revenue for Q1 fiscal year 2026 — a 106% year-over-year increase. CEO Hock Tan has stated the company has "line of sight" to more than $100 billion in AI chip revenue in 2027, backed by a disclosed $73 billion AI backlog.
+
+Marvell, which co-designs Amazon's Trainium and Inferentia processors and Microsoft's Maia accelerator, generated approximately $1.5 billion in custom AI ASIC revenue in 2025, per analyst estimates, and is targeting significant share expansion through 2027.
+
+MediaTek entered the field more recently but is accelerating. At its April 30, 2026 earnings call, CEO Rick Tsai announced that MediaTek's first AI accelerator program for a major United States hyperscaler is on schedule, with the company now expecting approximately $2 billion in AI ASIC revenue in the fourth quarter of 2026 alone — double its prior guidance. Tsai also said a second AI accelerator project is in development, targeting mass production by end-2027.
+
+Alchip occupies a different tier from these players. Unlike Broadcom and Marvell, which provide co-design services at large scale across multiple customers, Alchip is a pure-play turnkey ASIC design house that operates at the most advanced process nodes and serves customers that need a focused engineering partner from design through volume manufacturing. It is smaller but strategically positioned: Morgan Stanley estimated in late 2025 that more than 1.5 million Amazon Trainium chips would ship in 2026, with Alchip named as a key design service provider for that program.
+
+Does Custom Silicon Work for Organizations Outside Hyperscalers?
+
+The 40–65% cost advantage that makes custom ASICs compelling for Google or Amazon running billions of inference queries daily looks very different for an enterprise running tens of thousands of queries per week. Custom ASIC programs require 18–24 month design cycles, substantial upfront engineering investment, close collaboration with a manufacturing partner like TSMC, and workloads stable and predictable enough to justify designing around a fixed architecture. A startup still experimenting with model architectures, or an enterprise with diverse AI tasks, will find Nvidia GPUs the more economical choice precisely because of the flexibility that hyperscalers are willing to pay to eliminate.
+
+The shift in market share from GPUs to ASICs is therefore real but concentrated. It is hyperscalers that are moving at scale, and it is inference workloads where the economics align. Training — where CUDA's flexibility and NVLink's multi-chip scaling remain difficult to replicate — stays GPU-dominated for the foreseeable future. Nvidia's absolute data center revenue continues to grow even as its market share percentage comes under pressure from the right side of the distribution.
+
+Frequently Asked Questions
+
+Why are hyperscalers building custom AI chips instead of buying Nvidia GPUs?
+
+Custom application-specific integrated circuits can deliver a 40–65% total cost of ownership advantage over general-purpose GPUs for inference workloads running at hyperscaler scale — billions of daily queries against a stable model architecture. At those volumes, the upfront investment in a custom chip design pays back within 18–24 months and then generates ongoing savings on power, cooling, and capital expenditure for the chip's full production lifetime.
+
+What is an AI ASIC, and how does it differ from a GPU?
+
+An application-specific integrated circuit is a chip designed to perform one specific class of tasks as efficiently as possible, rather than handling any workload flexibly. Nvidia GPUs are general-purpose processors optimized for a wide range of parallel computations; a custom AI ASIC is optimized for one company's specific model architecture or inference pattern, delivering higher performance per watt and lower cost-per-token for that specific use case, while offering no flexibility outside it.
+
+Will custom AI chips replace Nvidia GPUs?
+
+Custom chips are taking market share in inference, where workloads are predictable and volume is high enough to justify the design investment. Nvidia retains its dominant position in training, where CUDA's flexibility and NVLink's multi-chip scaling are difficult to replicate, and in enterprise deployments where organizations run diverse AI workloads rather than a single, high-volume use case. TrendForce projects custom ASIC shipments growing at 44.6% in 2026 versus 16.1% for GPUs — a meaningful divergence, but one that describes displacement at the margin rather than wholesale replacement.
+
+How does Alchip fit into the custom AI chip supply chain?
+
+Alchip is a Taiwan-based ASIC design house that provides end-to-end turnkey services — from chip architecture and physical design through manufacturing management and volume production — for companies building custom silicon at the most advanced process nodes. It serves as a critical enabler for cloud providers and AI infrastructure companies that have the workload scale to justify custom silicon but lack the internal engineering depth of a Broadcom or Marvell. In 2025, high-performance computing and AI accounted for 83% of Alchip's revenue.
+
+ⓒ 2026 TECHTIMES.com All rights reserved. Do not reproduce without permission.
+
+Tags:AI ChipsNVIDIABroadcomMediaTekTSMCSemiconductor
+
+Join the Discussion
+
+Most Popular
+
+L3Harris Fires CEO Kubasik Over Conduct Violation, Names Mehta Successor Immediately
+
+Ukraine Cyber Corps Hacked Wildberries, Then 600 Drones Struck: Russia Confirms Drone Shortage
+
+Jaden Newman's Leak Is Legal to Discuss: Researchers Document Harm That Follows
+
+LNG Tank Fire Closes Roads Near Tulsa: Glenpool Schools Shelter in Place
+
+Netflix Stock Falls 41% From Peak as Record Buyback Signals Management Conviction
+
+Tech
+
+Science
+
+Business
+
+Health
+
+Culture
+
+Features
+
+Buzz
+
+About Us
+
+Contact Us
+
+Terms & Conditions
+
+Privacy Policy
+
+©
+2026 Tech Times Media Inc. All rights reserved.

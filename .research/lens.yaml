@@ -1,0 +1,102 @@
+lens: technical
+name: Technical
+use_when: >
+  Evaluating software, frameworks, protocols, architectures, or infrastructure.
+  Framework comparisons, build-versus-buy, dependency decisions, performance
+  questions, migration risk.
+
+tiers:
+  T1: >
+    The artifact itself. Source code, the RFC or specification, the changelog, the
+    issue tracker, a benchmark you ran, the actual API response. Facts you can
+    re-derive without trusting anyone.
+  T2: >
+    First-party technical documentation and engineering write-ups from the
+    maintainers, plus independent reproducible benchmarks that publish their
+    method and configuration.
+  T3: >
+    Practitioner reports with specifics: conference talks, engineering blogs
+    describing a real deployment, detailed Stack Overflow answers, well-argued
+    comparison posts by someone with no stake.
+  T4: >
+    Vendor benchmarks and marketing, aggregator listicles, undated tutorials,
+    LLM-generated comparison pages, "top 10 X in 2026" articles.
+
+recency:
+  default_window_years: 2
+  note: >
+    Software rots fast. A benchmark against a version two majors back is
+    describing a different program. Always record the version the source tested
+    and check it against the version under consideration -- a source that does
+    not state its version is T4 regardless of who wrote it.
+
+strong_evidence: >
+  A benchmark that publishes its configuration, hardware, dataset, and version,
+  and that you could rerun. Second best: the same finding reported by two
+  independent deployments at different scales.
+
+traps:
+  - "A vendor benchmark is strong evidence of what the vendor claims and weak evidence of what you will see."
+  - "Benchmarks run on the vendor's preferred workload, hardware, or tuning."
+  - "GitHub stars and download counts as proxies for quality or maintenance."
+  - "A stale comparison table whose numbers were true for a version nobody runs."
+  - "Reading a maintainer's aspiration in a roadmap as a shipped feature."
+  - "'It scales' with no number attached to it."
+
+preferred_sources:
+  - Official docs and specifications
+  - Repository source, releases, and issues
+  - Independent benchmark suites that publish method
+  - Post-incident reviews and engineering blogs describing real production use
+
+# ---------------------------------------------------------------------------
+# Adjustments for this project (research-scope step 2)
+# ---------------------------------------------------------------------------
+
+adjustments:
+  reason: >
+    The decision is strategic (should speed be a governed long-horizon axis?) but
+    the crux of the thesis is empirical and technical (is there a real, persistent
+    performance gap?). The traps that would sink this project are technical ones --
+    vendor benchmarks, version drift, undefined units -- so the technical lens is
+    primary. A market overlay is added for sub-questions 1 and 5, which are about
+    pricing and organisational practice rather than artifacts.
+
+  recency_override:
+    window_years: 2
+    tightened_to_months: 12
+    applies_to: >
+      Any absolute latency or throughput figure (TTFT, tokens/sec, req/s), and any
+      per-token price. Both move on a timescale of months in this domain. Figures
+      older than 12 months are usable only as historical trend points and must be
+      labelled as such in the claim, never as "current".
+    note: >
+      Additionally, record for every performance source: the model, the model
+      version/quantisation, the hardware, the concurrency/batch setting, and
+      whether tokens/sec is output-only or total. A performance source missing the
+      model version or the concurrency setting is T4 regardless of publisher.
+
+  market_overlay:
+    applies_to_subquestions: [1, 5]
+    tiers:
+      T1: >
+        Published price lists and rate-limit pages captured directly, provider
+        changelogs announcing price changes, the product itself.
+      T2: >
+        Survey research that states its sample and method; analyst work with a
+        published methodology; standards or trade bodies.
+      T3: >
+        Named trade-press reporting; practitioner accounts of real governance
+        practice.
+      T4: >
+        Vendor-commissioned surveys, press releases, and any adoption percentage
+        with no stated sample.
+    extra_traps:
+      - "Vendor-commissioned 'state of AI' surveys presented as independent adoption evidence."
+      - "Self-reported cost savings and self-reported latency improvements."
+      - "A price comparison that ignores cache pricing, batch discounts, or reasoning-token overhead."
+
+  project_traps:
+    - "Speed and cost are not independent axes -- faster serving is often the mechanism by which cost falls. Test this rather than assuming the brief's sequential framing."
+    - "Reasoning models decoupled tokens/sec from time-to-answer. Sources predating that shift measure a different workload."
+    - "The user holds the thesis. Disconfirming search is mandatory, and contradiction-scout must run before synthesis is finalised."

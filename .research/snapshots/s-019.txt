@@ -1,0 +1,714 @@
+Skip to main content
+
+Contact Us
+
+About Constellation
+
+Company Overview
+
+Our Clients
+
+Client Services Team
+
+Media Mentions
+
+Press Releases
+
+Careers at Constellation
+
+Contact Us
+
+Legal Terms
+
+Login
+
+Join
+
+Research
+
+Analyst Services
+
+Videos
+
+Communities
+
+Events
+
+Insights
+
+Search
+
+About Constellation
+
+Company Overview
+
+Our Clients
+
+Client Services Team
+
+Media Mentions
+
+Press Releases
+
+Careers at Constellation
+
+Contact Us
+
+Legal Terms
+
+Login
+
+Join
+
+Research
+
+Full Library
+
+Analyst Blog
+
+Analysts
+
+The Board
+
+ShortLists
+
+Business Themes
+
+Research Agenda
+
+Orbits Series
+
+Research & Citation Policies
+
+Recommendations for You
+
+Analyst Blog
+
+Get updates about industry trends, events and research.
+
+Meet Our Analysts
+
+Connect with our subject matter experts.
+
+Analyst Services
+
+Custom Research
+
+Technology Acquisition
+
+Analyst Inquiries
+
+Speaking and Workshops
+
+Provider Advisory Services
+
+Enterprise Advisory Services
+
+Board Advisory
+
+Recommendations for You
+
+Book an Inquiry
+
+Schedule time with one of our analysts.
+
+Advisory Services
+
+Ongoing guidance for your organization.
+
+Videos
+
+DisrupTV
+
+ConstellationTV
+
+Shortlist Spotlights
+
+Insights Video
+
+CR Conversations
+
+Recommendations for You
+
+Watch the latest episode of DisrupTV
+
+Stay ahead with fresh takes on tech, leadership, and innovation
+
+Watch the latest episode of CRTV
+
+Catch the latest hot take from Constellation analysts.
+
+Communities
+
+Business Transformation 150
+
+Ambient Experience 100
+
+SuperNova Awards
+
+Artificial Intelligence 150
+
+Sustainability 50
+
+AI-First Service Firms
+
+Recommendations for You
+
+Become a Member
+
+Join the Constellation community and access our comprehensive collection of research and analysis.
+
+BT150 Nomination Form
+
+Know someone driving meaningful change? Nominate them for the upcoming BT150 and showcase their impact on a global stage.
+
+Events
+
+Constellation’s Connected Enterprise
+
+Analyst Relations Experience
+
+AI Forum
+
+Ambient Experience Summit
+
+Constellation's Futures Forum
+
+Healthcare Transformation Summit
+
+Recommendations for You
+
+AI Forum Registration
+
+Secure your spot at AIF on March 19, 2026.
+
+Industry Events
+
+See where our analysts are headed next.
+
+Insights
+
+Insights News
+
+Notebook
+
+Customer Stories
+
+Insights Video
+
+Recommendations for You
+
+Insights News
+
+Stay ahead of enterprise news with Larry Dignan.
+
+Customer Stories
+
+These enterprises are making big waves with technology use cases.
+
+Research
+
+Full Library
+
+Analyst Blog
+
+Analysts
+
+The Board
+
+ShortLists
+
+Business Themes
+
+Research Agenda
+
+Orbits Series
+
+Research & Citation Policies
+
+Recommendations for You
+
+Analyst Blog
+
+Get updates about industry trends, events and research.
+
+Meet Our Analysts
+
+Connect with our subject matter experts.
+
+Available Services
+
+Custom Research
+
+Technology Acquisition
+
+Analyst Inquiries
+
+Speaking and Workshops
+
+Provider Advisory Services
+
+Enterprise Advisory Services
+
+Board Advisory
+
+Recommendations for You
+
+Book an Inquiry
+
+Schedule time with one of our analysts.
+
+Advisory Services
+
+Ongoing guidance for your organization.
+
+Videos
+
+DisrupTV
+
+ConstellationTV
+
+Shortlist Spotlights
+
+Insights Video
+
+CR Conversations
+
+Recommendations for You
+
+Watch the latest episode of DisrupTV
+
+Stay ahead with fresh takes on tech, leadership, and innovation
+
+Watch the latest episode of CRTV
+
+Catch the latest hot take from Constellation analysts.
+
+Our Communities
+
+Business Transformation 150
+
+Ambient Experience 100
+
+SuperNova Awards
+
+Artificial Intelligence 150
+
+Sustainability 50
+
+AI-First Service Firms
+
+Recommendations for You
+
+Become a Member
+
+Join the Constellation community and access our comprehensive collection of research and analysis.
+
+BT150 Nomination Form
+
+Know someone driving meaningful change? Nominate them for the upcoming BT150 and showcase their impact on a global stage.
+
+Events
+
+Constellation’s Connected Enterprise
+
+Analyst Relations Experience
+
+AI Forum
+
+Ambient Experience Summit
+
+Constellation's Futures Forum
+
+Healthcare Transformation Summit
+
+Recommendations for You
+
+AI Forum Registration
+
+Secure your spot at AIF on March 19, 2026.
+
+Industry Events
+
+See where our analysts are headed next.
+
+The Latest from Insights Live
+
+Insights News
+
+Notebook
+
+Customer Stories
+
+Insights Video
+
+Recommendations for You
+
+Insights News
+
+Stay ahead of enterprise news with Larry Dignan.
+
+Customer Stories
+
+These enterprises are making big waves with technology use cases.
+
+Breadcrumb
+
+Home
+
+Insights
+
+News
+
+Nvidia GTC 2026: Nvidia’s hardware strategy goes beyond GPU in AI inference pivot
+
+Nvidia GTC 2026: Nvidia’s hardware strategy goes beyond GPU in AI inference pivot
+
+Published March 16, 2026
+
+Copy link
+Link Copied
+
+Copied to clipboard
+
+Nvidia launched a Vera Rubin AI Platform that includes Vera CPUs and Rubin GPUs in an AI factory system. The upshot is that Nvidia's vision revolves around a full stack platform that incudes CPUs, GPUs and LPUs via the Groq deal.
+
+For good measure, Nvidia rolled out the Vera Rubin DSX AI Factory reference design and the general availability of the Nvidia Omniverse DSX Blueprint. These designs help build, simulate, and operate large-scale AI infrastructure to maximize energy efficiency.
+
+Nvidia is gunning for up to 15x token generation and support for 10x larger models for richer multi-agent interactions.
+
+GTC 2026 coverage:
+
+Nvidia GTC 2026: AI inference fueling demand boom, $1 trillion of order flow
+
+Nvidia GTC 2026: Nvidia’s hardware strategy goes beyond GPU in AI inference pivot
+
+Where’s tokenomics for the rest of us?
+
+Event Report: Nvidia GTC Kicks Off - All Eyes on AI Future
+
+Nvidia Nemotron: Much needed open-source model champion in US
+
+Nvidia's Huang: All software will be agentic
+
+Constellation ShortList™ AI Factory Providers
+
+CEO Jensen Huang, speaking at Nvidia GTC 2026 in San Jose, outlined the big themes around enabling and operationalizing agentic AI. The theme is Nvidia's hardware works better together in an integrated stack. Another theme was AI inference and Nvidia making a big CPU splash with the Nvidia Vera CPU.
+
+Speaking at his Nvidia GTC 2026 keynote, Huang said the company is multi-platform. "We're going to talk about technology with platforms. Nvidia has three platforms and you'd think that we mostly talk about one," said Huang. "And now we have a new platform called AI Factory."
+
+Vertically integrated
+
+Huang cited examples of where Google Cloud and Nvidia boosted performance for Snapchat users. He also said Nvidia collaborated with IBM and Nestle to speed up data use and worked on AI at NTT Data with Dell Technologies. Nvidia also was sure to call out Google Cloud, AWS and Microsoft Azure even though those companies have custom silicon.
+
+The takeaway here is that Nvidia is everywhere with a strong ecosystem. "There are a lot of customers we're going to accelerate everybody. And so there'll be lots and lots of customers will be aligned in your cloud," said Huang. "Nvidia is the world's first vertically integrated, but horizontally open company.
+
+"We have we have reached that moment of inflection. The inference inflection has arrived," said Huang.
+
+He said there's a $1 trillion in AI demand through 2027, double what Huang projected at GTC DC.
+
+In total, Nvidia has seven new chips in full production. The platform will include the following:
+
+Nvidia Vera CPU;
+
+Nvidia Rubin GPU;
+
+Nvidia NVLinkTM 6 Switch;
+
+Nvidia ConnectX-9 SuperNIC;
+
+Nvidia BlueField-4 DPU;
+
+Nvidia SpectrumTM-6 Ethernet switch;
+
+Nvidia Groq 3 LPU. See: Nvidia's Groq deal: Acquisition, acquihire or creative licensing deal?
+
+The theme from Huang is that these chips power seven racks that ultimately add up to a supercomputer. Here’s a look at the racks that will be available in the second half:
+
+Vera Rubin NVL72: Features 72 Rubin GPUs and 36 Vera CPUs, offering up to 10x higher inference throughput per watt and training large models with one-fourth the GPU count of the Blackwell platform.
+
+Vera CPU Rack: Utilizes liquid-cooled MGX infrastructure with 256 Vera CPUs to provide energy-efficient, high-performance capacity for reinforcement learning and agentic workflows.
+
+Groq 3 LPX Rack: Designed for low-latency agentic systems, this rack features 256 LPU processors and delivers up to 35x higher inference throughput per megawatt.
+
+BlueField-4 STX Storage Rack: An AI-native storage solution that uses NVIDIA DOCA Memos to boost inference throughput by up to 5x while managing massive key-value cache data.
+
+Spectrum-6 SPX Ethernet Rack: Engineered for high-throughput, low-latency connectivity across AI factories.
+
+Vera CPU aimed at reinforcement training, agentic AI efficiency
+
+Nvidia’s Vera CPU is aimed at agentic AI and reinforcement training and offers 50% faster performance and twice the efficiency compared to traditional rack-scale CPUs. Vera features 88 custom "Olympus" cores that utilize Nvidia Spatial Multithreading, allowing each core to run two tasks for consistent performance in multi-tenant environments.
+
+Vera CPU, which is in full production and available in the second half, incorporates LPDDR5X memory, delivering 1.2 TB/s of bandwidth—double the bandwidth at half the power of general-purpose CPUs. Within the Vera Rubin NVL72 platform, the CPU uses NVLink-C2C technology to achieve 1.8 TB/s of coherent bandwidth.
+
+Huang also touted a new rack design that integrates 256 liquid-cooled Vera CPUs, supporting over 22,500 concurrent CPU environments. These systems leverage the NVIDIA MGX modular reference architecture and integrate ConnectX SuperNICs and BlueField-4 DPUs to accelerate networking, security, and storage.
+
+Even though Nvidia doesn’t have a legacy in CPUs, it will have a footprint in clouds as hyperscalers such Alibaba, ByteDance, Meta, Oracle Cloud Infrastructure, CoreWeave, and Lambda will use Vera. OEMs behind Vera include Dell Technologies, HPE, Lenovo, Supermicro, ASUS, and Quanta Cloud Technology (QCT).
+
+Putting it all together
+
+While Nvidia GTC 2026 is featuring a full complement of hardware and software, building AI factories includes much more than the technology. To that end, the Vera Rubin DSX AI Factory Reference Design includes a set of modular applications.
+
+DSX Max-Q, which maximizes token performance per watt within a fixed power budget.
+
+DSX Flex, which connects AI factories to power-grid services to manage demand.
+
+DSX Exchange, for secure integration of IT and operational technology signals.
+
+DSX Sim, which validates designs through high-fidelity digital twins.
+
+Those software modules were built with an ecosystem of AI factory players including Cadence, Dassault Systèmes, Siemens, and Vertiv, Emerald AI, GE Vernova, Hitachi and Siemens Energy are working with Nvidia to resolve energy bottlenecks.
+
+Here's a look at the roadmap ahead.
+
+Constellation Research’s point of view
+
+Constellation Research CEO R “Ray” Wang said:
+
+“As Nvidia moves up the stack, they will continue to compete with their ecosystem partners and customers will have to choose between Nvidia and the partners.
+
+Physical AI is the future and with all the major players standardizing on Nvidia creates a huge opportunity going forward for standardization but also market monopoly,
+
+The new LPU push with Groq puts CPUs back in the spotlight.
+
+The cross platform multi-agentic push is Nvidia's flex to take back the software layer.”
+
+Constellation Research analyst Holger Mueller noted:
+
+“Sovereign AI is dead if Nvidia doesn't give you the machines. Or so you operate on 2- to 4-year-old AI factories with substantially, possibly threatening agent inferiority.
+
+Who pays for the faster agent waiting for the slower agent to come back to them?
+
+Again, the bar is not perfection but the speed of human response.”
+
+Copy link
+Link Copied
+
+Copied to clipboard
+
+Larry
+Dignan
+
+Editor in Chief of Constellation Insights
+
+Constellation Research
+
+Larry Dignan is Editor in Chief of Constellation Insights at Constellation Research, where he leads editorial coverage focused on enterprise technology, digital transformation, and emerging trends shaping the future of business. He oversees research-driven news, analysis, interviews, and event coverage designed to help technology buyers and vendors navigate complex markets with clarity and context. ...
+
+Read more
+
+Results
+
+Insights News
+
+August 17, 2026
+
+OpenAI, Nvidia, SB Energy finalize Ohio AI infrastructure deal
+
+Tech Optimization
+
+OpenAI said it will lease a 8 gigawatt data center project in Ohio with SB Energy and Nvidia providing a backstop. ...
+
+Larry Dignan
+
+Insights News
+
+August 16, 2026
+
+Why AI infrastructure folks are talking so much about applications
+
+Innovation & Product-led Growth
+
+AI infrastructure providers are increasingly talking about applications that rely on agents and data to continually improve and drive returns. Why? Enterprises, currently the thin ...
+
+Larry Dignan
+
+Insights News
+
+August 13, 2026
+
+The most important LLM benchmark today: Price
+
+Data to Decisions
+
+The most valuable benchmark for large language models—open and proprietary—is quickly becoming price. Google launched Gemini 3.7 Flash, which is billed as its most intelligent work...
+
+Larry Dignan
+
+Insights News
+
+August 13, 2026
+
+Databricks hits $7 billion revenue run rate in Q2, $190 billion valuation
+
+Data to Decisions
+
+Databricks said it passed the $7 billion annual revenue run rate in the second quarter. The company is now valued at $190 billion....
+
+Larry Dignan
+
+Insights News
+
+August 13, 2026
+
+Dynatrace acquires Arize, accelerates AI observability efforts
+
+Data to Decisions
+
+Dynatrace acquired Arize, which specializes in AI observability and the AI development lifecycle, in a deal worth $915 million. The acquisition is just the latest data point indica...
+
+Larry Dignan
+
+Insights News
+
+August 13, 2026
+
+IBM, OpenAI forge AI consulting, delivery pact
+
+Data to Decisions
+
+IBM and OpenAI said they have formed a strategic partnership that embeds OpenAI's frontier models and other products with IBM Consulting's capabilities. ...
+
+Larry Dignan
+
+Published
+
+March 16, 2026
+
+Author
+
+Larry Dignan
+
+Categories
+
+Business Themes
+
+Data to Decisions
+Future of Work
+
+Vendors
+
+nvidia
+
+Audience Role
+
+Chief Information Officer
+
+Hot Topics
+
+Agentic AI
+AI
+
+Related Blog Posts
+
+Insights News
+
+March 15, 2026
+
+Where’s tokenomics for the rest of us?
+
+Data to Decisions
+
+Nvidia CEO Jensen Huang has a go-to riff about the company's full stack AI approach and architecture. It goes like this: Nvidia's AI stack creates tokens that turn into revenue. Th...
+
+Larry Dignan
+
+Guiding organizations through their digital transformation journey with strategic research and advisory services.
+
+Company Overview
+
+Our Clients
+
+Media Mentions
+
+Careers at Constellation Research
+
+Contact Us
+
+Client Services Team
+
+Legal & Terms of use
+
+Research
+
+Full Library
+
+Research Agenda
+
+Research Blog
+
+ShortLists
+
+Contributors
+
+Research Themes
+
+Research Policies
+
+Analyst Services
+
+Analyst Inquiries
+
+Provider Advisory
+
+Custom Research
+
+Technology Acquisition
+
+Speaking Workshops
+
+Enterprise Advisory
+
+Videos
+
+DisrupTV
+
+ConstellationTV
+
+Insights Video
+
+ShortList Spotlights
+
+CR Conversations
+
+Communities
+
+Business Transformation 150
+
+SuperNova Awards™
+
+Ambient Experience 100
+
+Artificial Intelligence 150
+
+Sustainability 50
+
+Events
+
+Constellation's Connected Enterprise
+
+AI Forum
+
+Healthcare Transformation Summit
+
+Analyst Relations Experience
+
+Ambient Experience Summit
+
+Insights Live
+
+Insights News
+
+Customer Stories
+
+Newsletters
+
+Notebook
+
+Video
+
+Follow Us:
+
+© Constellation Research Inc. 2010 - 2026. All Rights Reserved.
+
+Constellation Research, Constellation SuperNova Awards, Connected Enterprise, and the Constellation Research logo are trademarks of Constellation Research, Inc. All other products and services listed herein are trademarks of their respective companies.

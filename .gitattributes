@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Snapshots are captured bytes -- never normalise them, the sha256 in
+# sources.jsonl is computed over the file as written.
+.research/snapshots/** -text -diff
+
+# Ledgers are line-delimited JSON; keep diffs line-oriented.
+*.jsonl text eol=lf
