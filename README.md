@@ -1,197 +1,135 @@
 # Speed Is the Moat
 
 <p align="center">
-  <img src="speed-is-the-moat-cover.png"
+  <img src="assets/speed-is-the-moat-cover.png"
        alt="Book cover reading SPEED IS THE MOAT, subtitled a practical guide to building compounding advantage in the AI era, by Anuj Sadani, over a long-exposure photograph of light trails curving toward a city skyline at dusk."
-       width="320">
+       width="330">
 </p>
 
-<p align="center"><em><strong>The claim, as it is usually made.</strong><br>
-What follows is the test of it.</em></p>
+<p align="center">
+  <strong><a href="https://asadani.github.io/speed-is-the-moat/">Read online</a></strong>
+  &nbsp;&middot;&nbsp;
+  <strong><a href="speed-is-the-moat.pdf">Download the PDF</a></strong>
+  &nbsp;&middot;&nbsp;
+  <a href="SUMMARY.md">The argument in five minutes</a>
+</p>
 
 ---
 
-A verified research report testing a claim that circulates widely in AI
-engineering: that now token cost is understood, **inference speed is the next
-durable differentiator** — the moat.
+A short book on a claim that circulates in AI engineering: that now token cost is
+understood, **inference speed is the next durable advantage** — the moat.
 
-It is not. But the instinct behind it points at something real, and the useful
-version of the finding is narrower and more actionable than the slogan.
+It is not. But the instinct behind it is pointing at something real, and the
+useful version turns out to be narrower and more actionable than the slogan.
 
-**Verdict: PASS** — 33 sources captured, 65 claims bound to exact quoted
-passages, 0 hard failures.
+Twenty-four pages, eight chapters. Every factual sentence is bound to an exact
+quotation in a source captured to disk and checked by hash.
 
----
+## The argument
 
-## The question
+**Speed is not a moat — it is a lead with a measured half-life of one to two
+months.** Independent benchmarks record inference software delivering up to 2x
+more throughput on *unchanged silicon* inside a single month. That is shorter
+than most procurement cycles, which is the whole problem with the word.
 
-> Now that per-token cost is broadly understood and largely commoditised, does
-> inference speed (latency and throughput) constitute a durable differentiator
-> for LLM systems, or is it a lead that erodes as fast as it is won?
+Four findings sit under that:
 
-## The answer in five findings
+1. **The dispersion is real and large.** Between providers of *identical* open
+   weights, the spread runs five to eight times. Between resellers of a
+   proprietary frontier model it collapses to about 1.4x. So the size of the
+   prize depends on a structural question, not an engineering one: can you
+   choose who serves the weights?
 
-1. **The dispersion is real and large.** For an open-weight model that many
-   providers serve, the spread between providers of *identical weights* is
-   roughly 5–8x. For proprietary frontier models it collapses to about 1.4x. So
-   the size of any available speed advantage depends on whether you can choose
-   who serves the weights.
+2. **Latency is bought, not won.** It is already a priced contract term.
+   Platform documentation carries an explicit Latency SLA column, with defined
+   per-model targets on priority and provisioned tiers and none on standard.
+   Most organizations sit on the ungoverned tier by default rather than by
+   decision.
 
-2. **A lead has a measured half-life of one to two months.** Independent
-   benchmarks record inference software delivering up to 2x throughput gains on
-   *unchanged silicon* inside a single month. That is shorter than most
-   procurement cycles. It is the central reason "moat" is the wrong word.
+3. **The interactive business case is contradicted by the only controlled study
+   in the corpus.** A CHI 2026 experiment varied time-to-first-token across 2, 9
+   and 20 seconds for 240 participants. Behavior did not shift — and 2-second
+   responses were rated *less* thoughtful and useful than 9-20-second ones. The
+   ubiquitous "100ms = 1% of sales" figure is an e-commerce page-load result
+   recycled into AI latency marketing.
 
-3. **Latency is bought, not won.** It is already a priced contract term:
-   platform documentation carries an explicit Latency SLA column, with defined
-   per-model latency targets on priority and provisioned tiers, and none on the
-   standard tier. Most organisations sit on the ungoverned tier by default
-   rather than by decision.
+4. **Where speed compounds is agentic wall-clock**, not interface
+   responsiveness. Agentic traces run tens of sequential turns — up to 200 for
+   code QA — with heavy tails at every step.
 
-4. **The interactive business case is contradicted by the only controlled
-   study in the corpus.** A CHI 2026 experiment (240 participants, TTFT varied
-   across 2/9/20 seconds) found user behaviour robust to latency — and found
-   2-second responses rated *less* thoughtful and useful than 9–20-second ones.
-   The widely-cited "100ms = 1% of sales" figure is an e-commerce page-load
-   result recycled into AI latency marketing.
-
-5. **Where speed compounds is agentic wall-clock.** Agentic traces run tens of
-   sequential turns — up to 200 tool-call turns for code QA — with heavy tails
-   at every step. That multiplication is how a per-token rate becomes hours.
-
-The phrase "Speed is the moat" appears in this corpus as a quote from AMD's VP
+The phrase "Speed is the moat" appears in this research as a quote from AMD's VP
 of GPU Software in a benchmark launch post. Nvidia describes the same benchmark
 results in terms of performance per dollar and per megawatt.
 
----
+## What is in here
 
-## Repository contents
-
-| Path | What it is |
+| Path | |
 |---|---|
-| `speed-is-the-moat.pdf` | **The book.** 24 pages, typeset, print-ready A4, full-bleed cover. |
-| `speed-is-the-moat.html` | The same book as a self-contained page — reads on screen, prints identically. All fonts and images embedded; no network needed. |
-| `speed-is-the-moat.md` | The underlying report. Every checkable sentence carries a `[^c-NNN]` marker resolving to the claims ledger, with a generated References section. |
-| `SUMMARY.md` | The condensed argument and the numbers. |
-| `.research/` | The verification workspace. This is the part that makes the report checkable. |
-| `speed-is-the-moat-cover.png` | Cover art. |
-| `build/` | The book build: `book.html.in` template, `make_fonts.py` (cuts static font instances), `build_book.py` (HTML → headless Chrome → folio-stamped PDF). |
-| `LICENSE` | CC BY-NC-ND 4.0. Does not cover captured third-party sources. |
+| [`speed-is-the-moat.pdf`](speed-is-the-moat.pdf) | The book. 24 pages, typeset A4, full-bleed cover. |
+| [`index.html`](https://asadani.github.io/speed-is-the-moat/) | The same book on the web. Self-contained — fonts and images embedded, no network needed, prints identically. |
+| [`SUMMARY.md`](SUMMARY.md) | The condensed argument and the numbers. |
+| [`assets/`](assets/) | Cover art. |
+| [`.research/`](.research/) | The evidence the book is built on. |
+| [`LICENSE`](LICENSE) | CC BY-NC-ND 4.0. Does not cover the captured third-party sources. |
 
-### The verification workspace
+## Checking any claim
 
-| File | Role |
-|---|---|
-| `.research/brief.md` | The question, sub-questions, out-of-scope list, and what would change the conclusion — written *before* gathering. |
-| `.research/lens.yaml` | The source standard: what T1–T4 mean here, recency window, known traps. |
-| `.research/sources.jsonl` | 33 captured sources with tier, publisher, caveats, and a sha256 of the snapshot. |
-| `.research/snapshots/` | The captured bytes. A source that was not snapshotted does not exist. |
-| `.research/claims.jsonl` | 65 claims, each bound to a source at a quote locator, with stance and confidence. |
-| `.research/synthesis.md` | Agreement, disagreement, single-source dependencies, and gaps — including the revision pass. |
-| `.research/verification-report.md` | The gate's verdict, rule by rule. |
-| `.research/state.yaml` | Pipeline state and the gap ledger. |
-| `.research/build_*.py`, `patch_report*.py` | The scripts that built the ledgers and the report, kept so the construction is reproducible rather than asserted. |
+Every superscript in the book is a claim identifier. It resolves to a row in
+[`.research/claims.jsonl`](.research/claims.jsonl), which names the source and
+the exact words relied on. Nothing requires trusting the author, and nothing
+requires network access.
 
----
-
-## How to check this report yourself
-
-Every factual sentence binds to a passage in a file in this repository. Nothing
-requires trusting the author, and nothing requires network access.
-
-Pick any claim marker in the report, say `[^c-052]`, then:
+Take `c-052`, the finding that faster responses were rated *worse*:
 
 ```bash
-# 1. read the claim, its stance and its confidence
-grep '"c-052"' .research/claims.jsonl | python -m json.tool
+# the claim, its stance and its confidence
+grep '"c-052"' .research/claims.jsonl
 
-# 2. read the passage it binds to, in the captured source
+# the passage it binds to, inside the captured source
 grep -n "rated the LLM" .research/snapshots/s-024.txt
 
-# 3. confirm the snapshot has not been altered since capture
+# proof the snapshot has not changed since capture
 sha256sum .research/snapshots/s-024.txt
 grep '"s-024"' .research/sources.jsonl
 ```
 
-To re-run the whole gate:
+`.research/` holds the question and its boundaries as written *before* any source
+was read (`brief.md`), the source standard (`lens.yaml`), 33 captured sources
+with tiers and caveats (`sources.jsonl` and `snapshots/`), 65 bound claims
+(`claims.jsonl`), where the sources agree and conflict (`synthesis.md`), the
+underlying report with citation markers (`report.md`), and the verification
+gate's verdict (`verification-report.md`).
 
-```bash
-python <research-anything>/scripts/verify_claims.py --workspace .research
-```
+The gate fails a document when a marker resolves to nothing, when a quotation
+does not occur in its snapshot, when a snapshot's hash has changed, or when a
+contested claim is presented as settled. It returned **PASS** with zero hard
+failures across 65 claims and 33 sources.
 
-The gate fails the report if a marker resolves to nothing, a quote does not
-occur in its snapshot, a snapshot hash has changed, or a contested claim is
-presented as settled.
+## What the book does not establish
 
----
+- The cross-provider figures rest on a single benchmarker. A second benchmark
+  corroborates the shape of the finding, but it measures hardware and serving
+  stacks rather than API endpoints.
+- The latency experiment covers 2-20 seconds on knowledge tasks. It does not
+  settle voice, real-time, or long-horizon agentic interaction.
+- Whether buying organizations set and enforce *internal* latency objectives is
+  unverified; that needs procurement contracts not obtained here.
+- No independent auditor pass was run. Every locator is a mechanical
+  quote-match, which catches fabrication but not a quotation that is accurate
+  and does not mean what the claim needs.
 
-## How it was built
-
-Produced with the [`research-anything`](https://github.com/asadani/research-anything)
-pipeline: **scope → gather → verify → synthesize → report**, with a verification
-gate that decides whether the report ships.
-
-The book edition is a second, parallel pipeline reading the same verified
-workspace:
-
-```bash
-python build/make_fonts.py       # cut static instances of the variable faces
-python build/make_cover_page.py  # fit the cover art to a full-bleed A4 page
-python build/build_book.py       # HTML -> headless Chrome -> folio-stamped PDF
-```
-
-Static font instances are not an optimization. Chrome degrades variable-font
-instances to Type 3 when printing, which is unusable in print; `make_fonts.py`
-flattens Archivo and Source Serif 4 to fixed weights so all nine faces embed as
-subsetted TrueType. `build_book.py` fails the build if a Type 3 face survives,
-if the cover image is missing, or if expected body text does not appear in the
-extracted PDF text.
-
-The cover is page one at full bleed, edge to edge, via `@page :first { margin:0 }`.
-Because the art is 2:3 and A4 is 1:1.414, `make_cover_page.py` trims the excess
-asymmetrically — mostly off the top, where the art is empty sky — so the author
-name near the foot is never clipped.
-
-It ran in two passes. The first passed the gate with six named gaps. The second
-closed four of them — and two of those closures *changed the answer*, which is
-recorded in `.research/synthesis.md` rather than quietly folded into the prose.
-The sub-question on organisational governance moved from "unresolved" to
-"answered, against the thesis."
-
-## What this report does not establish
-
-- The 6.8x figure between two named API providers rests on **one** benchmarker.
-  The corroborating benchmark measures hardware and serving stacks, not API
-  endpoints — it confirms the shape, not that specific number.
-- The latency experiment covers 2–20 second time-to-first-token on knowledge
-  tasks. It does not settle voice, real-time, or long-horizon agentic work.
-- Whether buying organisations set and enforce *internal* latency SLOs is still
-  unverified; that needs procurement contracts this project did not obtain.
-- No single named optimisation was timed from paper to commodity default.
-- No independent auditor pass was run over the bindings; every locator is a
-  mechanical quote-match against a snapshot.
-
-These are stated in the report as well. A limitations section that only lives in
-a README is a limitations section nobody reads.
-
----
+These are stated in the book as well, in the chapters that depend on them.
 
 ## A note on the cover
 
-The cover states the thesis in its popular form — and in its *other* form. "Build,
-learn, ship, repeat" is a claim about *organisational execution velocity*: how fast
-a team learns and ships.
+The cover states the thesis in its popular form — and in its *other* form.
+"Build, learn, ship, repeat" is a claim about **organizational velocity**: how
+fast a team learns and ships.
 
-This report does not test that claim. It was ruled out of scope deliberately, and
-the brief says so before any evidence was gathered:
+The book does not test that claim. It was ruled out of scope in writing before
+any evidence was gathered, because the two meanings are so easy to slide
+between. What is tested is the narrower, measurable one: that **inference** speed
+is a durable differentiator.
 
-> **Organisational execution speed.** "Ship fast as a moat" is a different thesis
-> about company velocity. Named explicitly because the phrase "speed is the moat"
-> is commonly used that way; this project is about *inference* speed only.
-
-What is tested here is the narrower, more measurable claim: that **inference**
-speed — latency and throughput — is a durable differentiator. On that question the
-answer is no, for the reasons above.
-
-So the cover is the proposition and the repository is the audit. They are meant to
-disagree. If they agreed, one of them would not have been worth writing.
+So the cover is the proposition and the book is the audit. They are meant to
+disagree.
