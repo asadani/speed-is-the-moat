@@ -38,8 +38,42 @@ folio:
   skip_pages: [1]      # no folio on the cover
   first_number: 1      # the cover counts as folio 1, so page 2 prints "2"
 
+# Block scalars below: first line at 6 spaces, continuations at 8. The partials
+# add their own indent(4), which lands the result at the book's 4/6 house style.
 matter:
   mode: sheet
+  front:
+    heading: "Copyright, permissions, and how this was made"
+    work_line: "Speed Is the Moat &mdash; a verified inquiry into whether
+      inference speed is a durable advantage for the systems built on it."
+    # This book has a claim ledger and a verification gate, so it may say so.
+    ai_disclosure: verified
+    sources_html: |
+      <p>The sources are a separate matter. This book is published alongside a
+        free companion archive &mdash; <span class="mono">tech.anujsadani.in/speed-is-the-moat</span>
+        &mdash; holding a saved copy of every source it cites, so that any claim can
+        be checked years from now even if the original page has moved or vanished.
+        Those saved copies remain the property of the publishers who wrote them and
+        are kept only as evidence. If you want to quote a source, quote the
+        publisher's own version rather than the copy held here.</p>
+    imprint: "First edition &middot; August 2026 &middot; research verified 18 August 2026"
+  about:
+    heading: "About the author"
+    closing_html: |
+      <p>This book came out of a working habit rather than a thesis: checking
+        whether the sentences everyone repeats survive contact with the evidence.
+        Most of the time they half survive, and the half that does is the useful
+        part.</p>
+  colophon_html: |
+    <b>Speed Is the Moat</b> &mdash; a verified inquiry by Anuj Sadani, 2026.<br>
+      Repository, full report, and verification workspace:
+      <b>github.com/asadani/speed-is-the-moat</b><br>
+      Built on 33 captured sources and 65 claims bound to exact quotations, each
+      checked against its snapshot before this text was allowed to ship.<br>
+      Set in Archivo, Source Serif 4, and IBM Plex Mono.<br>
+      Text licensed CC BY 4.0 &mdash; use it freely, credit the author. Captured
+      sources remain the property of their publishers and are retained as
+      verification evidence.
 
 license:
   id: CC-BY-4.0
@@ -61,6 +95,10 @@ verify:
     - "Latency Service Level Agreement"
     - "source ledger"
     - "PagedAttention"
+  matter_probes:
+    - "Copyright, permissions"
+    - "About the author"
+    - "CC BY 4.0"
   min_images: 1
   expect_pages: 26
   page_tolerance: 0
