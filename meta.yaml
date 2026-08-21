@@ -1,0 +1,66 @@
+# Speed Is the Moat -- book-forge configuration.
+#
+# Everything here used to be a hardcoded constant in build/build_book.py.
+
+slug: speed-is-the-moat
+title: "Speed Is the Moat"
+subtitle: "Why inference speed is a lead, not a moat"
+theme: sheet-oxblood
+
+source:
+  template: book.html.in
+output:
+  html: index.html
+  pdf: speed-is-the-moat.pdf
+
+page:
+  size: A4
+
+cover:
+  art: assets/speed-is-the-moat-cover.png
+  fit: crop            # 2:3 art on A4: fill by width, trim the excess height
+  trim_top_share: 0.47 # mostly off the top, where the art is empty sky
+  dpi: 300
+
+# Inlined as SVG at the {{SLOT}} of the same name.
+qr:
+  - slot: QR_AUTHOR
+    target: https://anujsadani.in
+    label: "Writing and work"
+  - slot: QR_TECH
+    target: https://tech.anujsadani.in
+    label: "This book, and the evidence"
+
+folio:
+  font: IBMPlexMono-Regular.ttf
+  size: 8
+  color: [0.49, 0.52, 0.58]
+  skip_pages: [1]      # no folio on the cover
+  first_number: 1      # the cover counts as folio 1, so page 2 prints "2"
+
+matter:
+  mode: sheet
+
+license:
+  id: CC-BY-4.0
+
+edition: "First edition"
+date: 2026-08
+verified_on: 2026-08-18
+
+links:
+  read_online: https://tech.anujsadani.in/speed-is-the-moat/
+  repo: https://github.com/asadani/speed-is-the-moat
+  kofi: https://ko-fi.com/s/17808b2e0b
+
+verify:
+  cover_probes: ["Speed Is", "the Moat", "Anuj Sadani"]
+  body_probes:
+    - "half-life"
+    - "CHI 2026"
+    - "Latency Service Level Agreement"
+    - "source ledger"
+    - "PagedAttention"
+  min_images: 1
+  expect_pages: 26
+  page_tolerance: 0
