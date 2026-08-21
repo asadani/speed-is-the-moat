@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong><a href="https://asadani.github.io/speed-is-the-moat/">Read online</a></strong>
+  <strong><a href="https://tech.anujsadani.in/speed-is-the-moat/">Read online</a></strong>
   &nbsp;&middot;&nbsp;
   <strong><a href="speed-is-the-moat.pdf">Download the PDF</a></strong>
   &nbsp;&middot;&nbsp;
@@ -66,7 +66,7 @@ results in terms of performance per dollar and per megawatt.
 | Path | |
 |---|---|
 | [`speed-is-the-moat.pdf`](speed-is-the-moat.pdf) | The book. 24 pages, typeset A4, full-bleed cover. |
-| [`index.html`](https://asadani.github.io/speed-is-the-moat/) | The same book on the web. Self-contained — fonts and images embedded, no network needed, prints identically. |
+| [`index.html`](https://tech.anujsadani.in/speed-is-the-moat/) | The same book on the web. Self-contained — fonts and images embedded, no network needed, prints identically. |
 | [`SUMMARY.md`](SUMMARY.md) | The condensed argument and the numbers. |
 | [`assets/`](assets/) | Cover art. |
 | [`.research/`](.research/) | The evidence the book is built on. |
