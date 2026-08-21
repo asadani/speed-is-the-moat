@@ -120,7 +120,7 @@ efficiency, the framing is positioning, not physics.
 ---
 
 *The book: [`speed-is-the-moat.pdf`](speed-is-the-moat.pdf) or [read online](https://tech.anujsadani.in/speed-is-the-moat/).
-Underlying report with claim markers: [`.research/report.md`](.research/report.md).
-Verification workspace: [`.research/`](.research/). Every figure above is bound
+Underlying report with claim markers: [`research/report.md`](research/report.md).
+Verification workspace: [`research/`](research/). Every figure above is bound
 to a captured source at a quote locator; see the README for how to check any of
 them.*

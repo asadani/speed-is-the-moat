@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Report | `.research/report.md` |
+| Report | `research/report.md` |
 | Sources in ledger | 33 |
 | Claims in ledger | 65 |
 | Claims cited by the report | 65 |

@@ -17,4 +17,4 @@ build/cover-page.jpg
 
 # Build tooling lives locally; this is a reading repo, not a code repo.
 build/
-.research/*.py
+research/*.py

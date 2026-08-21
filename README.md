@@ -22,7 +22,7 @@ understood, **inference speed is the next durable advantage** — the moat.
 It is not. But the instinct behind it is pointing at something real, and the
 useful version turns out to be narrower and more actionable than the slogan.
 
-Twenty-four pages, eight chapters. Every factual sentence is bound to an exact
+Twenty-six pages, eight chapters. Every factual sentence is bound to an exact
 quotation in a source captured to disk and checked by hash.
 
 ## The argument
@@ -65,17 +65,17 @@ results in terms of performance per dollar and per megawatt.
 
 | Path | |
 |---|---|
-| [`speed-is-the-moat.pdf`](speed-is-the-moat.pdf) | The book. 24 pages, typeset A4, full-bleed cover. |
+| [`speed-is-the-moat.pdf`](speed-is-the-moat.pdf) | The book. 26 pages, typeset A4, full-bleed cover. |
 | [`index.html`](https://tech.anujsadani.in/speed-is-the-moat/) | The same book on the web. Self-contained — fonts and images embedded, no network needed, prints identically. |
 | [`SUMMARY.md`](SUMMARY.md) | The condensed argument and the numbers. |
 | [`assets/`](assets/) | Cover art. |
-| [`.research/`](.research/) | The evidence the book is built on. |
-| [`LICENSE`](LICENSE) | CC BY-NC-ND 4.0. Does not cover the captured third-party sources. |
+| [`research/`](research/) | The evidence the book is built on. |
+| [`LICENSE`](LICENSE) | CC BY 4.0 &mdash; use it freely, credit the author. Does not cover the captured third-party sources. |
 
 ## Checking any claim
 
 Every superscript in the book is a claim identifier. It resolves to a row in
-[`.research/claims.jsonl`](.research/claims.jsonl), which names the source and
+[`research/claims.jsonl`](research/claims.jsonl), which names the source and
 the exact words relied on. Nothing requires trusting the author, and nothing
 requires network access.
 
@@ -83,17 +83,17 @@ Take `c-052`, the finding that faster responses were rated *worse*:
 
 ```bash
 # the claim, its stance and its confidence
-grep '"c-052"' .research/claims.jsonl
+grep '"c-052"' research/claims.jsonl
 
 # the passage it binds to, inside the captured source
-grep -n "rated the LLM" .research/snapshots/s-024.txt
+grep -n "rated the LLM" research/snapshots/s-024.txt
 
 # proof the snapshot has not changed since capture
-sha256sum .research/snapshots/s-024.txt
-grep '"s-024"' .research/sources.jsonl
+sha256sum research/snapshots/s-024.txt
+grep '"s-024"' research/sources.jsonl
 ```
 
-`.research/` holds the question and its boundaries as written *before* any source
+`research/` holds the question and its boundaries as written *before* any source
 was read (`brief.md`), the source standard (`lens.yaml`), 33 captured sources
 with tiers and caveats (`sources.jsonl` and `snapshots/`), 65 bound claims
 (`claims.jsonl`), where the sources agree and conflict (`synthesis.md`), the

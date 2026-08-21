@@ -135,6 +135,91 @@ section.cover img{
   margin-top:2.5mm;
 }
 
+/* ---------- title page description ---------- */
+
+.titlepage .desc{
+  font-size:11.4pt;
+  line-height:1.6;
+  margin:0 0 5mm;
+  max-width:124mm;
+}
+.titlepage .desc:last-of-type{ margin-bottom:14mm }
+
+/* ---------- copyright plate ---------- */
+
+.plate h3{ margin-top:8mm }
+.legal{
+  font-size:10.2pt;
+  line-height:1.58;
+}
+.legal p{ margin:0 0 3.4mm }
+.legal .work{
+  font-style:italic;
+  color:var(--ink-soft);
+}
+.legal .grant{
+  border-left:3px solid var(--accent);
+  padding:0 0 0 5mm;
+  margin:5mm 0;
+}
+.legal .imprint{
+  font-family:var(--mono);
+  font-size:8pt;
+  letter-spacing:.06em;
+  color:var(--ink-faint);
+  margin-top:7mm;
+  padding-top:3.5mm;
+  border-top:1px solid var(--rule);
+}
+.signoff{
+  font-family:var(--mono);
+  font-size:8.4pt;
+  letter-spacing:.1em;
+  color:var(--ink-faint);
+  margin-top:5mm;
+}
+
+/* ---------- about the author ---------- */
+
+.about .bio{ font-size:11pt;line-height:1.62;max-width:128mm }
+.qrpanel{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8mm;
+  margin:9mm 0 0;
+  padding-top:6mm;
+  border-top:1.5px solid var(--ink);
+}
+.qrcard{ display:flex;gap:5mm;align-items:flex-start }
+.qrcard .code{
+  width:26mm;
+  flex:0 0 auto;
+  padding:2mm;
+  border:1px solid var(--rule-strong);
+  background:#fff;
+}
+.qrcard .code svg{ display:block;width:100%;height:auto }
+.qrcard .what{ padding-top:1mm }
+.qrcard .what b{
+  display:block;
+  font-family:var(--display);
+  font-weight:600;
+  font-size:10pt;
+  margin-bottom:1.5mm;
+}
+.qrcard .what span{
+  display:block;
+  font-size:9.4pt;
+  line-height:1.45;
+  color:var(--ink-soft);
+  margin-bottom:2mm;
+}
+.qrcard .what code{
+  font-family:var(--mono);
+  font-size:8pt;
+  color:var(--accent);
+}
+
 /* ---------- front matter ---------- */
 
 .plate{ padding-top:4mm }
@@ -464,18 +549,83 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
   <p class="kicker">A verified inquiry &middot; 2026</p>
   <h1>Speed Is<br>the Moat</h1>
   <div class="rule"></div>
-  <p class="sub">What thirty-three sources and sixty-five bound claims say about
-    whether inference speed is a durable advantage &mdash; or a lead with a
-    half-life.</p>
-  <p class="verdict">It is a lead with a half-life. The measured figure is
-    <b>one to two months</b>. What survives the finding is more useful than the
-    slogan it replaces.</p>
+  <p class="sub">A short book about a slogan, and what happens when somebody
+    finally tests it.</p>
+  <p class="desc">Somewhere between the price war and the benchmark war, a
+    sentence took hold: now that everyone understands what tokens cost, speed is
+    what will separate the winners. It is a good line. Good lines are worth
+    checking.</p>
+  <p class="desc">What follows takes the narrow, testable version of that claim
+    &mdash; that inference speed is a <em>durable</em> advantage &mdash; and puts
+    it against the evidence. The answer is no. The reasons are more useful than
+    the verdict: the gap between fast and slow providers is real and larger than
+    most people assume, it closes in weeks, latency turns out to be something you
+    buy rather than something you win, and the one controlled experiment on the
+    question finds users rating the faster answer as the worse one.</p>
   <p class="byline">Anuj Sadani
     <small>Every claim bound to a captured source</small>
   </p>
 </section>
 
 <!-- ============================ FRONT ============================ -->
+<section class="sheet plate">
+  <h2>Copyright, permissions, and how this was made</h2>
+
+  <div class="legal">
+    <p class="work">Speed Is the Moat &mdash; a verified inquiry into whether
+      inference speed is a durable advantage for the systems built on it.</p>
+
+    <p>Copyright &copy; 2026 Anuj Sadani.</p>
+
+    <div class="grant">
+      <p><b>Use it freely.</b> Share it, quote it, teach from it, put a chart in
+        your deck, argue with it in public. The only thing asked in return is
+        attribution: name <b>Anuj Sadani</b> and <i>Speed Is the Moat</i>, with a
+        link where the format allows one.</p>
+      <p>Released under Creative Commons Attribution 4.0 International
+        (CC BY 4.0).</p>
+    </div>
+
+    <p>The captured sources are a separate matter. Everything under
+      <span class="mono">research/snapshots/</span> remains the property of its
+      publisher and is retained only as evidence for the claims that cite it.
+      Quote those from the original, not from here.</p>
+
+    <h3>A note on how this book was written</h3>
+
+    <p>An AI system drafted this book. Not "assisted with" &mdash; drafted it,
+      from the research through to the prose you are reading. I set the question
+      and its boundaries, made the judgment calls, argued with the drafts, and
+      put my name on the result. The errors are mine; the model does not get to
+      share the blame.</p>
+
+    <p>If that makes you wince, I understand the reflex. The internet is full of
+      confident, sourceless, frictionless text, and the reasonable response has
+      been to distrust anything that reads too smoothly. But the objection worth
+      taking seriously is not that a machine wrote it. It is that nobody checked
+      it.</p>
+
+    <p>So this book was built the other way round. Sources were captured to disk
+      and hashed before a word was drafted. Every factual sentence is bound to an
+      exact quotation inside one of those files, and a verification gate refused
+      to let the text ship until each binding checked out. The superscripts are
+      not decoration &mdash; they are the audit trail, and you can walk it
+      yourself in an afternoon.</p>
+
+    <p>That is the arrangement I would like to see become normal: let the machine
+      draft, and make the drafting answer for itself. If you compose every
+      sentence by hand, full respect &mdash; the craft shows. And if you notice
+      the em-dashes, they are mine. I have always written this way. Make your
+      peace with them.</p>
+
+    <p class="signoff">&mdash; A.S.</p>
+
+    <p class="imprint">First edition &middot; August 2026 &middot;
+      Research verified 18 August 2026<br>
+      tech.anujsadani.in/speed-is-the-moat</p>
+  </div>
+</section>
+
 <section class="sheet plate">
   <h2>What this is, and how to disbelieve it</h2>
 
@@ -503,6 +653,20 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
       the source and the exact words relied on. Nothing requires trusting the
       author and nothing requires network access.</p>
   </div>
+
+  <h3>How to read this</h3>
+
+  <ul class="plain">
+    <li><b>Straight through</b> is about an hour. The argument is cumulative:
+      each chapter tests one thing the word "moat" has to earn.</li>
+    <li><b>If you have five minutes</b>, read chapter eight. It states the
+      finding and the four decisions that follow from it.</li>
+    <li><b>If you came for the numbers</b>, chapters three and four carry them,
+      and the source ledger at the back names every publisher.</li>
+    <li><b>If you disagree</b> &mdash; good. Take the claim identifier from the
+      sentence you object to, open the ledger, and read the passage it rests on.
+      That is what it is there for.</li>
+  </ul>
 
 </section>
 
@@ -1240,15 +1404,61 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
     </tbody>
   </table>
 
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="sheet backmatter about">
+  <h2>About the author</h2>
+
+  <div class="bio">
+    <p>Anuj Sadani builds AI systems and the teams that build them. He spent a
+      decade at NVIDIA, has worked inside AI-first organizations, and has led
+      multicultural engineering pods across Europe &mdash; sixteen-plus years,
+      most of them on the AI era's unglamorous half: turning hype into systems
+      that ship, and systems that ship into outcomes that hold up in production.
+      That work has fed into industry recognition from Gartner and Everest Group,
+      and an Innovator of the Year nod.</p>
+
+    <p>He is the author of <i>The Clean Vibe Coder: A Code of Conduct for
+      Programmers in the Age of AI Agents</i> and <i>Borrow the Line. Own the
+      Move.</i>, and writes about engineering, leadership, and what stays human
+      when the tools get good. He still believes the best technology is the kind
+      that makes the people around it braver.</p>
+
+    <p>This book came out of a working habit rather than a thesis: checking
+      whether the sentences everyone repeats survive contact with the evidence.
+      Most of the time they half survive, and the half that does is the useful
+      part.</p>
+  </div>
+
+  <div class="qrpanel">
+    <div class="qrcard">
+      <div class="code"><svg viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><path stroke="#161a21" d="M0 0.5h7m2 0h3m2 0h1m3 0h2m2 0h7m-29 1h1m5 0h1m1 0h2m2 0h1m1 0h1m5 0h1m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m4 0h2m4 0h4m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h4m2 0h2m1 0h3m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m4 0h2m3 0h1m1 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h1m1 0h2m2 0h2m2 0h3m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h2m1 0h4m1 0h5m-17 1h4m2 0h5m3 0h1m1 0h1m1 0h2m3 0h1m-27 1h2m1 0h2m1 0h2m2 0h7m1 0h2m1 0h1m1 0h5m-26 1h1m1 0h3m5 0h1m1 0h4m2 0h1m3 0h1m2 0h1m-27 1h2m3 0h3m1 0h2m1 0h1m1 0h1m1 0h1m2 0h1m1 0h3m1 0h2m-25 1h4m3 0h2m6 0h2m2 0h1m1 0h1m2 0h1m-29 1h1m4 0h1m4 0h1m2 0h2m1 0h1m5 0h1m1 0h1m1 0h1m1 0h1m-28 1h1m2 0h7m1 0h1m1 0h2m1 0h1m2 0h1m3 0h1m3 0h1m-29 1h1m3 0h1m2 0h1m2 0h1m1 0h1m1 0h1m6 0h1m1 0h1m1 0h1m-26 1h1m3 0h5m1 0h1m1 0h10m-22 1h2m2 0h2m1 0h1m1 0h1m2 0h5m2 0h2m1 0h3m1 0h1m1 0h1m-27 1h1m3 0h1m1 0h2m1 0h1m1 0h3m2 0h1m4 0h2m3 0h1m-27 1h3m3 0h1m1 0h1m1 0h1m6 0h2m3 0h2m2 0h1m-29 1h2m2 0h1m1 0h3m1 0h1m3 0h3m1 0h1m1 0h6m1 0h1m-20 1h1m2 0h1m1 0h5m1 0h2m3 0h1m1 0h3m-29 1h7m1 0h4m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m3 0h1m-29 1h1m5 0h1m1 0h2m3 0h2m3 0h3m3 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h2m1 0h2m3 0h6m3 0h1m-29 1h1m1 0h3m1 0h1m6 0h1m2 0h3m4 0h1m1 0h3m-28 1h1m1 0h3m1 0h1m2 0h1m1 0h2m2 0h1m3 0h3m3 0h1m1 0h2m-29 1h1m5 0h1m3 0h3m2 0h3m2 0h2m1 0h1m1 0h1m1 0h2m-29 1h7m7 0h2m1 0h2m1 0h2m2 0h2m1 0h1"/></svg></div>
+      <div class="what">
+        <b>Writing and work</b>
+        <span>Essays, books, and what he is building.</span>
+        <code>anujsadani.in</code>
+      </div>
+    </div>
+    <div class="qrcard">
+      <div class="code"><svg viewBox="0 0 33 33" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><path stroke="#161a21" d="M0 0.5h7m1 0h3m1 0h1m3 0h1m3 0h1m2 0h2m1 0h7m-33 1h1m5 0h1m1 0h1m3 0h1m1 0h3m2 0h1m2 0h1m1 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h5m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m5 0h7m1 0h1m1 0h3m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h2m3 0h1m2 0h1m1 0h1m2 0h1m3 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h2m3 0h1m4 0h1m3 0h3m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h2m1 0h1m-22 1h3m1 0h1m1 0h2m4 0h1m4 0h2m1 0h6m2 0h3m-31 1h2m1 0h1m6 0h2m1 0h1m1 0h2m1 0h2m1 0h4m3 0h1m1 0h1m-30 1h1m2 0h3m1 0h1m8 0h3m4 0h2m1 0h1m1 0h1m-32 1h1m2 0h2m2 0h1m3 0h1m2 0h2m1 0h1m2 0h3m1 0h1m4 0h2m-27 1h4m2 0h2m1 0h1m2 0h1m4 0h1m1 0h2m6 0h1m-28 1h1m2 0h1m1 0h1m4 0h1m1 0h2m1 0h2m1 0h2m2 0h2m2 0h1m1 0h1m-31 1h1m2 0h2m2 0h1m1 0h1m1 0h2m1 0h1m2 0h1m2 0h1m7 0h2m-32 1h3m1 0h1m2 0h1m1 0h2m1 0h4m2 0h1m1 0h3m1 0h2m1 0h1m2 0h1m1 0h1m-33 1h1m2 0h4m1 0h2m2 0h7m6 0h1m1 0h2m1 0h1m1 0h1m-31 1h1m4 0h1m1 0h2m1 0h2m2 0h1m2 0h3m1 0h2m1 0h1m-27 1h2m2 0h1m1 0h2m1 0h3m2 0h1m2 0h3m1 0h2m2 0h3m2 0h1m-31 1h1m1 0h1m2 0h1m1 0h1m4 0h5m1 0h1m1 0h5m1 0h1m2 0h2m1 0h1m-30 1h1m1 0h2m1 0h1m2 0h1m1 0h1m3 0h1m4 0h1m2 0h5m1 0h2m-33 1h2m1 0h1m4 0h1m1 0h1m2 0h2m1 0h1m1 0h1m5 0h1m4 0h4m-33 1h1m2 0h2m1 0h1m4 0h1m3 0h2m4 0h1m6 0h4m-32 1h1m3 0h1m2 0h3m2 0h7m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m-33 1h1m3 0h3m1 0h2m1 0h3m2 0h1m2 0h1m2 0h1m1 0h5m3 0h1m-25 1h4m2 0h1m4 0h2m3 0h1m3 0h1m1 0h3m-33 1h7m2 0h1m3 0h2m2 0h1m2 0h1m1 0h3m1 0h1m1 0h4m-32 1h1m5 0h1m2 0h2m1 0h5m1 0h1m1 0h1m2 0h2m3 0h5m-33 1h1m1 0h3m1 0h1m1 0h3m1 0h1m3 0h7m1 0h5m2 0h2m-33 1h1m1 0h3m1 0h1m1 0h5m4 0h1m1 0h2m4 0h1m2 0h2m1 0h1m-32 1h1m1 0h3m1 0h1m1 0h1m9 0h1m3 0h2m1 0h2m-27 1h1m5 0h1m2 0h9m1 0h1m5 0h3m1 0h1m-30 1h7m2 0h2m1 0h2m5 0h1m1 0h4m1 0h1m3 0h2"/></svg></div>
+      <div class="what">
+        <b>This book, and the evidence</b>
+        <span>Read it online, download the PDF, or walk the source ledger.</span>
+        <code>tech.anujsadani.in</code>
+      </div>
+    </div>
+  </div>
+
   <div class="colophon">
     <b>Speed Is the Moat</b> &mdash; a verified inquiry by Anuj Sadani, 2026.<br>
     Repository, full report, and verification workspace:
     <b>github.com/asadani/speed-is-the-moat</b><br>
-    Produced with the research-anything pipeline: scope, gather, verify,
-    synthesize, report. Gate verdict PASS &mdash; 33 sources, 65 bound claims,
-    0 hard failures, 65 of 65 claims cited.<br>
+    Built on 33 captured sources and 65 claims bound to exact quotations, each
+    checked against its snapshot before this text was allowed to ship.<br>
     Set in Archivo, Source Serif 4, and IBM Plex Mono.<br>
-    Text licensed CC BY-NC-ND 4.0. Captured sources remain the property of their
-    publishers and are retained as verification evidence.
+    Text licensed CC BY 4.0 &mdash; use it freely, credit the author. Captured
+    sources remain the property of their publishers and are retained as
+    verification evidence.
   </div>
 </section>
