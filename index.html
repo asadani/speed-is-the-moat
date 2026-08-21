@@ -147,7 +147,7 @@ section.cover img{
 
 /* ---------- copyright plate ---------- */
 
-.plate h3{ margin-top:8mm }
+.plate h3{ margin-top:6mm }
 .legal{
   font-size:10.2pt;
   line-height:1.58;
@@ -164,11 +164,11 @@ section.cover img{
 }
 .legal .imprint{
   font-family:var(--mono);
-  font-size:8pt;
-  letter-spacing:.06em;
+  font-size:7.6pt;
+  letter-spacing:.05em;
   color:var(--ink-faint);
-  margin-top:7mm;
-  padding-top:3.5mm;
+  margin-top:4mm;
+  padding-top:2.5mm;
   border-top:1px solid var(--rule);
 }
 .signoff{
@@ -176,7 +176,38 @@ section.cover img{
   font-size:8.4pt;
   letter-spacing:.1em;
   color:var(--ink-faint);
-  margin-top:5mm;
+  margin-top:3mm;
+}
+
+/* ---------- tier legend ---------- */
+
+.tierkey{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3mm 7mm;
+  margin:5mm 0 6mm;
+  padding:4.5mm 5mm;
+  background:var(--wash);
+  border:1px solid var(--rule);
+  break-inside:avoid;
+}
+.tierkey .row{ display:grid;grid-template-columns:9mm 1fr;gap:3mm;align-items:start }
+.tierkey .row > span:last-child{
+  font-size:9.2pt;
+  line-height:1.42;
+  color:var(--ink-soft);
+}
+.tierkey b{
+  font-family:var(--display);
+  font-weight:600;
+  color:var(--ink);
+}
+.tierkey .lead{
+  grid-column:1 / -1;
+  font-size:9.4pt;
+  line-height:1.45;
+  color:var(--ink-soft);
+  margin:0 0 1mm;
 }
 
 /* ---------- about the author ---------- */
@@ -586,10 +617,13 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
         (CC BY 4.0).</p>
     </div>
 
-    <p>The captured sources are a separate matter. Everything under
-      <span class="mono">research/snapshots/</span> remains the property of its
-      publisher and is retained only as evidence for the claims that cite it.
-      Quote those from the original, not from here.</p>
+    <p>The sources are a separate matter. This book is published alongside a
+      free companion archive &mdash; <span class="mono">tech.anujsadani.in/speed-is-the-moat</span>
+      &mdash; holding a saved copy of every source it cites, so that any claim can
+      be checked years from now even if the original page has moved or vanished.
+      Those saved copies remain the property of the publishers who wrote them and
+      are kept only as evidence. If you want to quote a source, quote the
+      publisher's own version rather than the copy held here.</p>
 
     <h3>A note on how this book was written</h3>
 
@@ -620,9 +654,7 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
 
     <p class="signoff">&mdash; A.S.</p>
 
-    <p class="imprint">First edition &middot; August 2026 &middot;
-      Research verified 18 August 2026<br>
-      tech.anujsadani.in/speed-is-the-moat</p>
+    <p class="imprint">First edition &middot; August 2026 &middot; research verified 18 August 2026</p>
   </div>
 </section>
 
@@ -648,10 +680,11 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
       contradicted him twice, and both reversals are recorded in the chapters
       where they happened rather than smoothed away.</p>
 
-    <p>Every superscript is a claim identifier. Each resolves to a row in
-      <span class="mono">claims.jsonl</span> in the public repository, which names
-      the source and the exact words relied on. Nothing requires trusting the
-      author and nothing requires network access.</p>
+    <p>Every superscript is a claim identifier. Each one resolves to an entry in
+      the public claim ledger at
+      <span class="mono">tech.anujsadani.in/speed-is-the-moat</span>, which names
+      the source and quotes the exact words the claim rests on. Nothing here asks
+      to be taken on trust.</p>
   </div>
 
   <h3>How to read this</h3>
@@ -1302,15 +1335,18 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
 
   <p class="beat">Source tiers</p>
 
-  <p>Tiering followed a technical standard with a market overlay for the pricing
-    and governance questions. <b>T1</b> is the artifact itself &mdash; a price
-    list, a specification, product documentation, an API response. <b>T2</b> is
-    first-party engineering documentation and independent benchmarks that publish
-    method, hardware, version, and date. <b>T3</b> is practitioner reporting by an
-    identifiable author with no stake in the outcome. <b>T4</b> is vendor
-    marketing and undated material, usable as evidence of what someone claimed
-    rather than that it is true. Any latency or throughput figure older than
-    twelve months was treated as a historical trend point, never as current.</p>
+  <p>Every source carries a tier, from <b>T1</b> to <b>T4</b>. The tier answers
+    one question and only one: <em>how directly can this be checked?</em> It is
+    not a rating of quality, and it says nothing about whether the source agreed
+    with the argument. A vendor benchmark that supported the conclusion still
+    scored T4; a price list that undercut it still scored T1.</p>
+
+  <p>The scale used here is the technical one, adjusted for the pricing and
+    governance questions, where the evidence that settles a point is commercial
+    rather than engineering. The full definitions sit beside the ledger in
+    Appendix B. One rule cut across all four: any latency or throughput figure
+    older than twelve months was treated as a historical trend point, never as a
+    current one.</p>
 
   <p class="beat">Two passes, and two reversals</p>
 
@@ -1360,10 +1396,29 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
 <section class="sheet backmatter">
   <h2>Appendix B &mdash; The source ledger</h2>
 
-  <p>Thirty-three sources, captured and hashed. Claim identifiers throughout this
-    book resolve to rows in <span class="mono">claims.jsonl</span>, each naming its
-    source and the exact words relied upon. Tier reflects a judgment about the
-    source, never about whether its content was welcome.</p>
+  <p>Thirty-three sources, each saved and fingerprinted at the moment it was
+    read. The claim identifiers throughout this book resolve to entries in the
+    ledger at <span class="mono">tech.anujsadani.in/speed-is-the-moat</span>,
+    which names the source behind every claim and quotes the words it rests on.
+    Tier reflects how directly a source can be checked, never whether its
+    content was welcome.</p>
+
+  <div class="tierkey">
+    <p class="lead">What the tiers mean</p>
+    <div class="row"><span><span class="tier t1">T1</span></span>
+      <span><b>The artifact itself.</b> A price list, a specification, product
+        documentation, an API response. Facts you can re-derive without trusting
+        anyone.</span></div>
+    <div class="row"><span><span class="tier t2">T2</span></span>
+      <span><b>First-party engineering documentation</b>, and independent
+        benchmarks that publish their method, hardware, version and date.</span></div>
+    <div class="row"><span><span class="tier">T3</span></span>
+      <span><b>Practitioner reporting</b> by an identifiable author with no stake
+        in the outcome.</span></div>
+    <div class="row"><span><span class="tier t4">T4</span></span>
+      <span><b>Vendor marketing and undated material.</b> Evidence of what
+        someone claimed, rarely evidence that it is true.</span></div>
+  </div>
 
   <table class="refs">
     <thead><tr><th>ID</th><th>Tier</th><th>Publisher</th><th>Title</th></tr></thead>
