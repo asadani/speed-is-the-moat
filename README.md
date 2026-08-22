@@ -9,7 +9,7 @@
 <p align="center">
   <strong><a href="https://tech.anujsadani.in/speed-is-the-moat/">Read online</a></strong>
   &nbsp;&middot;&nbsp;
-  <strong><a href="speed-is-the-moat.pdf">Download the PDF</a></strong>
+  <strong><a href="https://ko-fi.com/s/17808b2e0b">Get the PDF on Ko-fi</a></strong>
   &nbsp;&middot;&nbsp;
   <a href="SUMMARY.md">The argument in five minutes</a>
 </p>
@@ -65,7 +65,7 @@ results in terms of performance per dollar and per megawatt.
 
 | Path | |
 |---|---|
-| [`speed-is-the-moat.pdf`](speed-is-the-moat.pdf) | The book. 26 pages, typeset A4, full-bleed cover. |
+| Typeset PDF | The book. 26 pages, typeset A4, full-bleed cover. Sold on [Ko-fi](https://ko-fi.com/s/17808b2e0b); not in this repository. |
 | [`index.html`](https://tech.anujsadani.in/speed-is-the-moat/) | The same book on the web. Self-contained — fonts and images embedded, no network needed, prints identically. |
 | [`SUMMARY.md`](SUMMARY.md) | The condensed argument and the numbers. |
 | [`assets/`](assets/) | Cover art. |

@@ -18,3 +18,6 @@ __pycache__/
 # git-ignored here. `build/` is the retired local copy, kept until the
 # duplicate clone is retired; it is not the source of truth any more.
 build/
+
+# The typeset PDF is sold on Ko-fi, not distributed from this repository.
+*.pdf
