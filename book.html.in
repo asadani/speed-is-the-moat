@@ -520,6 +520,27 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
 }
 .colophon b{ color:var(--ink-soft);font-weight:500 }
 
+/* ---------- the Ko-fi button ---------- */
+
+.cover-dl{
+  display:inline-block;
+  margin-top:9mm;
+  font-family:var(--mono);
+  font-size:8.4pt;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:#fff;
+  background:var(--accent);
+  padding:3.4mm 6mm;
+  border-radius:24px;
+  text-decoration:none;
+}
+.cover-dl .ar{ font-weight:400;opacity:.85 }
+.cover-dl:hover{ background:#7d2230 }
+
+/* The button is a screen affordance; in print the reader already has the PDF. */
+@media print{ .cover-dl{ display:none } }
+
 /* ---------- screen presentation ---------- */
 
 @media screen{
@@ -589,6 +610,7 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
   <p class="byline">Anuj Sadani
     <small>Every claim bound to a captured source</small>
   </p>
+  <a class="cover-dl" href="https://ko-fi.com/s/17808b2e0b" target="_blank" rel="noopener"><span class="ar">&nearr;</span>&nbsp; Get the full PDF on Ko-fi</a>
 </section>
 
 <!-- ============================ FRONT ============================ -->
