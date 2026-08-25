@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speed Is the Moat — the condensed argument</title>
+<meta name="author" content="Anuj Sadani">
+<meta name="description" content="The condensed argument: a speed lead has a measured half-life of one to two months, latency is already sold as a contract tier, and the one controlled experiment found faster answers were judged worse. Four minutes; the full inquiry is 26 pages.">
+<link rel="canonical" href="https://tech.anujsadani.in/speed-is-the-moat/summary/">
+<meta property="og:title" content="Speed Is the Moat — the condensed argument">
+<meta property="og:description" content="A moat is not an advantage. It is an advantage a competitor cannot cross. The condensed argument, in four minutes.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FFFFFF; --wash:#F7F5F2; --ink:#161A21; --soft:#4E5665;
+  --faint:#7C8593; --rule:#E2E6EC; --accent:#9E2B3A; --accent-wash:#F6E9EB;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151A; --wash:#171B21; --ink:#E7EBF0; --soft:#B4BCC7;
+    --faint:#828C9A; --rule:#2A313B; --accent:#E4737F; --accent-wash:#241419;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151A; --wash:#171B21; --ink:#E7EBF0; --soft:#B4BCC7;
+  --faint:#828C9A; --rule:#2A313B; --accent:#E4737F; --accent-wash:#241419;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:0 1.3rem 5rem; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:1.06rem; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:40rem;margin:0 auto}
+header{padding:3.4rem 0 0}
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--faint); margin:0 0 1.3rem;
+  display:flex; gap:.6rem; align-items:center; flex-wrap:wrap;
+}
+.eyebrow .dot{color:var(--rule)}
+h1{
+  font-family:var(--sans); font-weight:700; font-size:clamp(1.9rem,5.4vw,2.7rem);
+  line-height:1.08; letter-spacing:-.02em; margin:0 0 .5rem; text-wrap:balance;
+}
+.sub{
+  font-family:var(--sans); font-weight:500; font-size:1.02rem; color:var(--soft);
+  margin:0 0 2rem;
+}
+.claim{
+  margin:0 0 2.6rem; padding:1.15rem 1.35rem;
+  background:var(--accent-wash); border-left:3px solid var(--accent);
+  font-size:1.16rem; line-height:1.5; color:var(--ink);
+}
+.claim b{font-weight:600}
+h2{
+  font-family:var(--sans); font-weight:600; font-size:1.02rem;
+  letter-spacing:.02em; margin:2.9rem 0 .1rem; color:var(--ink);
+}
+h2 .n{
+  font-family:var(--mono); font-size:.78rem; color:var(--accent);
+  margin-right:.55rem; font-weight:500;
+}
+h2+p{margin-top:.7rem}
+p{margin:0 0 1rem}
+strong{font-weight:600}
+em{font-style:italic}
+.pull{
+  font-family:var(--sans); font-weight:600; font-size:1.06rem; line-height:1.45;
+  color:var(--ink); margin:1.5rem 0; padding-left:1rem;
+  border-left:2px solid var(--accent);
+}
+.scroller{overflow-x:auto; margin:1.4rem 0}
+table{border-collapse:collapse; width:100%; font-size:.9rem; min-width:22rem}
+th,td{text-align:left; padding:.5rem .8rem .5rem 0; border-bottom:1px solid var(--rule)}
+th{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--faint); font-weight:400;
+}
+td.fig{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--ink)}
+td.fig b{color:var(--accent); font-weight:500}
+.crit{list-style:none; padding:0; margin:.9rem 0 1.2rem; counter-reset:c}
+.crit li{
+  counter-increment:c; position:relative; padding-left:2.1rem;
+  margin:0 0 .75rem; font-size:1rem;
+}
+.crit li::before{
+  content:counter(c); position:absolute; left:0; top:.12rem;
+  font-family:var(--mono); font-size:.75rem; color:var(--accent);
+  border:1px solid var(--rule); border-radius:50%;
+  width:1.45rem; height:1.45rem; display:grid; place-items:center;
+}
+.crit b{font-family:var(--sans); font-size:.97rem}
+.caveat{
+  margin:2.6rem 0 0; padding:1.1rem 1.3rem; background:var(--wash);
+  border:1px solid var(--rule); font-size:.97rem; color:var(--soft);
+}
+.caveat h3{
+  font-family:var(--sans); font-size:.8rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--faint); margin:0 0 .6rem; font-weight:600;
+}
+.caveat p:last-child{margin-bottom:0}
+.next{margin-top:3.2rem; padding-top:1.8rem; border-top:2px solid var(--ink)}
+.next h3{font-family:var(--sans); font-size:1.05rem; margin:0 0 .35rem; font-weight:600}
+.next .why{color:var(--soft); font-size:.97rem; margin:0 0 1.3rem}
+.actions{display:flex; flex-wrap:wrap; gap:.7rem}
+.btn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:var(--mono); font-size:.82rem; font-weight:500;
+  text-decoration:none; padding:.72rem 1.15rem; border-radius:26px;
+  border:1px solid var(--rule); color:var(--ink); background:var(--paper);
+  transition:border-color .15s ease, background .15s ease;
+}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn.primary:hover{background:#822430}
+.btn .ar{opacity:.8}
+.btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+footer{
+  margin-top:2.6rem; font-family:var(--mono); font-size:.74rem;
+  line-height:1.7; color:var(--faint);
+}
+footer a{color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">
+    <span>The argument in brief</span><span class="dot">&middot;</span>
+    <span>4 min</span><span class="dot">&middot;</span>
+    <span>full paper 26 pp</span>
+  </p>
+  <h1>Speed Is the Moat</h1>
+  <p class="sub">A moat is not an advantage. It is an advantage a competitor cannot cross.</p>
+</header>
+
+<p class="claim">
+  <b>No.</b> The dispersion in inference speed is large and real, but a lead
+  inside it has a measured half-life of one to two months, latency is already
+  sold as a contract tier rather than won, and the one controlled experiment on
+  interactive latency found faster responses changed no behaviour and were judged
+  <em>worse</em>.
+</p>
+
+<h2><span class="n">01</span>The premise needs one correction</h2>
+<p>
+  Cost is <em>understood</em> &mdash; 98% of 1,192 State of FinOps respondents
+  manage AI spend, up from 31% two years earlier. Cost is not <em>settled</em>:
+  it is still where frontier vendors compete in public.
+</p>
+<p>
+  More importantly, <strong>speed and cost are not sequential axes</strong>. They
+  are two readings of one batch-size curve. On fixed hardware you cannot have
+  both minimum latency and maximum throughput, and where a provider sits between
+  them is a commercial decision as much as a technical one.
+</p>
+
+<h2><span class="n">02</span>The numbers</h2>
+<div class="scroller">
+<table>
+  <thead><tr><th>Finding</th><th>Figure</th></tr></thead>
+  <tbody>
+    <tr><td>Cross-provider spread, same open weights</td><td class="fig"><b>6.8&times;</b> &mdash; 1,357 vs 201 tok/s</td></tr>
+    <tr><td>Same pair, wall clock</td><td class="fig"><b>5.6&times;</b> &mdash; 2.43s vs 13.49s</td></tr>
+    <tr><td>Cross-provider spread, proprietary model</td><td class="fig"><b>1.4&times;</b></td></tr>
+    <tr><td>Half-life of a software speed lead</td><td class="fig">up to <b>2&times; in one month</b></td></tr>
+    <tr><td>Cost of a 24-hour window vs interactive</td><td class="fig"><b>50%</b> of standard price</td></tr>
+    <tr><td>Latency effect on user behaviour</td><td class="fig"><b>none</b></td></tr>
+    <tr><td>Latency effect on perceived quality</td><td class="fig"><b>backwards</b></td></tr>
+    <tr><td>Agentic turns per task</td><td class="fig">~41, up to <b>200</b></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="n">03</span>Why &ldquo;moat&rdquo; is the wrong word</h2>
+<p>
+  The optimisations that once separated a fast serving stack from a slow one
+  &mdash; chunked prefill, prefix caching, speculative decoding, disaggregated
+  prefill/decode &mdash; are now standard features of open-source vLLM.
+</p>
+<p>
+  An independent benchmark puts a number on the erosion: AMD's inference software
+  improved <strong>up to 2&times; between December 2025 and January 2026</strong>,
+  and nearly doubled throughput at equal interactivity in under two months
+  &mdash; on hardware that did not change.
+</p>
+<p class="pull">
+  A lead that erodes on that cadence is shorter-lived than the procurement cycle
+  meant to capture it.
+</p>
+
+<h2><span class="n">04</span>The interactive case is weaker than assumed</h2>
+<p>
+  The most-cited evidence that latency costs money &mdash; Amazon's "every 100ms
+  costs 1% of sales" &mdash; is an e-commerce page-load result from a different
+  era and a different interaction, recycled into AI latency marketing.
+</p>
+<p>
+  The direct test says something else. A CHI 2026 controlled experiment varied
+  time-to-first-token across 2, 9 and 20 seconds for 240 participants. Interaction
+  behaviour was <strong>robust to latency</strong>. Perceived quality ran
+  <strong>backwards</strong>: 2-second responses were rated less thoughtful and
+  less useful than 9&ndash;20-second ones, with participants reading delay as
+  deliberation.
+</p>
+<p>
+  One experiment, one band, one task family. But within what it tested, the best
+  available evidence contradicts the folklore it replaces.
+</p>
+
+<h2><span class="n">05</span>Where speed does pay</h2>
+<p>
+  <strong>Throughput and agentic wall-clock</strong> &mdash; and it is
+  purchasable, not won. Batch APIs at both OpenAI and Anthropic charge 50% of
+  standard price for a 24-hour window. Identical work, identical model, half the
+  budget, seconds becoming a day.
+</p>
+<p>
+  Agentic workloads multiply sequential calls per task &mdash; tens of turns
+  typically, up to 200. That multiplication is the mechanism converting a
+  per-token rate into hours of wall clock, and it is why the question is sharper
+  now than it was for single-turn chat.
+</p>
+<p>
+  And latency is <strong>already governed at the platform layer</strong>.
+  Microsoft's deployment-type documentation carries an explicit Latency SLA
+  column: Priority and Provisioned carry a defined target, Standard and Batch
+  carry none. Latency is not an unclaimed strategic axis that leaders failed to
+  notice. It is a priced contract term, and most organisations are on the
+  ungoverned tier by default rather than by decision.
+</p>
+
+<h2><span class="n">06</span>What to do</h2>
+<ol class="crit">
+  <li><b>Classify workloads by tier before comparing vendors.</b> The batch/standard/priority split holds the largest wall-clock difference available for a fixed budget, without changing provider.</li>
+  <li><b>Treat open-weight vs proprietary as the gate.</b> Speed shopping pays 5&ndash;8&times; on open weights and roughly nothing on proprietary models.</li>
+  <li><b>Buy the latency you need and stop paying for the rest.</b> A latency target is a contract term you can already request; on the standard tier there is nothing to enforce.</li>
+  <li><b>Do not assume faster is better in the interface.</b> Spend the latency budget where it compounds &mdash; agentic loops &mdash; not on shaving an interactive response users may not reward.</li>
+</ol>
+
+<div class="caveat">
+  <h3>Where the phrase came from</h3>
+  <p>
+    "Speed is the moat" appears in this corpus as a quote from <strong>Anush
+    Elangovan, VP GPU Software at AMD</strong>, in a benchmark launch post.
+    Nvidia's framing of the same benchmark stresses performance per dollar and
+    per megawatt.
+  </p>
+  <p>
+    When the two largest GPU vendors describe identical results and one says
+    speed while the other says efficiency, the framing is positioning, not
+    physics.
+  </p>
+</div>
+
+<div class="next">
+  <h3>Read the full inquiry</h3>
+  <p class="why">
+    26 pages. 33 sources captured and hashed, 65 claims bound to exact
+    quotations. Every figure above resolves to a quote locator in a snapshotted
+    source, so you can check any of them yourself.
+  </p>
+  <div class="actions">
+    <a class="btn primary" href="../"><span class="ar">&rarr;</span> Read the full paper &middot; 26 pp</a>
+    <a class="btn" href="https://ko-fi.com/s/17808b2e0b" target="_blank" rel="noopener"><span class="ar">&nearr;</span> Typeset PDF on Ko-fi</a>
+  </div>
+</div>
+
+<footer>
+  33 sources captured and hashed. 65 claims bound to exact quotation, none of
+  which failed verification.<br>
+  Full paper and source archive: <a href="../">tech.anujsadani.in/speed-is-the-moat</a>
+</footer>
+
+</div>
+</body>
+</html>
