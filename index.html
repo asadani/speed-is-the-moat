@@ -603,7 +603,43 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
   .bar{ grid-template-columns:20mm 1fr 14mm }
   .cover-foot{ flex-direction:column;align-items:flex-start }
 }
+
+/* ---------- site header (screen only) ----------
+   The book pages are the only article-like pages on the site without the
+   common header. It is hidden in print: the PDF is the artifact you bought
+   and must not carry site chrome. order:-1 puts it first in the screen flex
+   column, above the reordered matter blocks. */
+.bf-nav{
+  position:sticky; top:0; z-index:40; order:-1;
+  background:var(--paper); border-bottom:1px solid var(--rule);
+}
+.bf-nav .nav-inner{
+  max-width:760px; margin:0 auto; padding:0 32px; height:50px;
+  display:flex; align-items:center; justify-content:space-between;
+  font-family:var(--mono); font-size:12px; letter-spacing:.02em;
+}
+.bf-nav a{ text-decoration:none }
+.bf-nav .brand{ color:var(--ink); font-weight:600 }
+.bf-nav .right{ display:flex; gap:16px; align-items:center }
+.bf-nav .dl{
+  color:#fff; background:var(--accent); font-weight:600;
+  padding:5px 12px; border-radius:20px; white-space:nowrap;
+}
+.bf-nav .idx{ color:var(--ink-faint); white-space:nowrap }
+.bf-nav .idx:hover{ color:var(--accent) }
+@media print{ .bf-nav{ display:none } }
 </style>
+
+<!-- ============================ SITE HEADER ============================ -->
+<nav class="bf-nav">
+  <div class="nav-inner">
+    <a class="brand" href="https://tech.anujsadani.in/">Anuj Sadani | Tech</a>
+    <span class="right">
+      <a class="dl" href="https://ko-fi.com/s/17808b2e0b" target="_blank" rel="noopener">PDF on Ko-fi &nearr;</a>
+      <a class="idx" href="https://tech.anujsadani.in/">&larr; index</a>
+    </span>
+  </div>
+</nav>
 
 <!-- ============================ COVER ============================ -->
 <section class="sheet cover">
