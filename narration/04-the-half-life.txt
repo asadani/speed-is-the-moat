@@ -1,0 +1,31 @@
+The half-life.
+
+A gap is necessary but not sufficient. The question is whether anyone can hold one, and here the thesis breaks cleanly.
+
+Consider what used to distinguish a fast serving stack. Paged attention for KV cache memory. Continuous batching. Prefix caching. Speculative decoding. Disaggregated prefill and decode. Each was, at introduction, a genuine engineering advantage held by whoever implemented it first.
+
+All of them now appear in a single line of the open-source vLLM documentation, under the heading of advanced features. Not as a roadmap. As what the software does when you install it.
+
+The frontier moves faster than the reader
+
+The rate of change is documented by the people who measure it for a living. Inference software improves through kernel-level optimization, distributed serving strategies, and scheduling work that lands "in incremental releases that can be just days apart." The consequence, stated plainly by the same benchmarker: results taken at a fixed point in time go stale and stop representing what the stack can actually do.
+
+The industry's response is instructive. Not better benchmarks, continuous ones. The suite is re-run nightly across hundreds of chips. When an entire measurement discipline reorganizes itself around the assumption that last month's numbers are fiction, it is describing a field where advantages do not sit still.
+
+Putting a number on it
+
+Characterization is not measurement, and for a while this was the weakest part of the argument. It is no longer. A second benchmark, run independently of the first, records AMD's inference software improving by up to two times between December 2025 and January 2026. Over a slightly longer window it recorded throughput at equal interactivity nearly doubling in under two months.
+
+On unchanged silicon. The same chips, in the same racks, delivering twice the work because the software around them got better.
+
+The half-life of a software-derived speed lead is roughly one to two months. Most procurement cycles are longer than that. The central finding
+
+This is the number that decides the question. An advantage that halves in weeks cannot be defended on any horizon on which the word "moat" is normally used. By the time a vendor evaluation is written, circulated, approved, and signed, the thing it measured has moved.
+
+Two candidates, both resting on thinner evidence than the finding above, and both worth stating because they are the strongest case against it.
+
+Custom inference silicon reaches a low-latency tier that GPU-based providers cannot match by tuning batch size alone, while occupying what the same source calls a distinct and expensive corner of the market. Whether that corner stays expensive is exactly what would decide the question, and this corpus cannot settle it: the only source making the argument is the source qualifying it.
+
+Separately, model labs hold a structural cost advantage in serving, because they can backfill idle capacity with training runs, research ablations, and offline batch work. The fleet is never truly idle, and its cost amortizes across everything. That is a real durable edge. It is an edge in economics rather than in speed.
+
+Which points at the reframing this chapter argues for. What persists is not pace but position, where an operator chooses to sit on the latency-throughput curve, a choice made commercially and revisable at any time.

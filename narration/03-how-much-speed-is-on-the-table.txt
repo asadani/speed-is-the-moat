@@ -1,0 +1,17 @@
+How much speed is on the table.
+
+A moat needs a gap. The gap is real, larger than most people assume, and it disappears entirely under one common condition.
+
+Take a single open-weight model and ask what happens when different companies serve it. Gemma 4 31B, at a 131,000-token context: Cerebras returns a median 1,357 output tokens per second and completes in 2.43 seconds. SambaNova, serving the identical model at the identical context length, returns 201 tokens per second and takes 13.49 seconds.
+
+Same weights. Same context. Roughly seven times the generation rate and five and a half times the wall clock. And the slower endpoint is the cheaper one, ten cents per task against twenty-four.
+
+The pattern repeats on a different model. Qwen3.6 27B through Groq returns 463 tokens per second and finishes in 14.58 seconds; through DeepInfra, 53 tokens per second and 117.94 seconds. That pair deserves an asterisk, the slower deployment is an FP8 quantization at a longer 262k context, so the comparison is not like-for-like. The Gemma pair, matched on model and context, is the cleaner evidence.
+
+Then the finding that reorganizes the question
+
+Now run the same exercise on a proprietary frontier model, where the choice is not which company serves the weights but which storefront sells them. Claude Opus 5 through Amazon Bedrock: 44.88 seconds. Through Anthropic's own API: 54.58 seconds. Through Google: 61.68 seconds.
+
+About 1.4 times, end to end. The gap has all but closed.
+
+The threshold set in advance was two times, below that, a speed advantage is not worth organizing around. Open weights clear it three to four times over. Proprietary models fall under it. So the size of the prize turns on a structural question rather than an engineering one: can you choose who serves the weights? If your system is built on a frontier proprietary model, there is very little speed available to shop for, and the decision is close to moot.

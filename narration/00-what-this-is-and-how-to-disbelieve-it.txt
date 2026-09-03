@@ -1,0 +1,19 @@
+What this is, and how to disbelieve it.
+
+A claim circulates in AI engineering: now that token cost is understood, speed is the next durable advantage. This tests it, and the answer is no, for reasons more interesting than the verdict.
+
+The argument is assembled backwards from the usual method. The question, its boundaries, and the evidence that would settle it were written down first. Then sources were captured to disk and hashed. Then every claim was bound to an exact quotation inside a captured file. Only then was any of this written as prose, and a verification gate decided whether it could ship at all.
+
+That ordering matters because the failure this guards against is not dishonesty. It is the ordinary drift of an argument toward the evidence that flatters it, which does not announce itself, least of all to the person doing it. The author held the thesis at the outset. The research contradicted him twice, and both reversals are recorded in the chapters where they happened rather than smoothed away.
+
+Every superscript is a claim identifier. Each one resolves to an entry in the public claim ledger at tech.anujsadani.in/speed-is-the-moat, which names the source and quotes the exact words the claim rests on. Nothing here asks to be taken on trust.
+
+How to read this
+
+Straight through is about an hour. The argument is cumulative: each chapter tests one thing the word "moat" has to earn.
+
+If you have five minutes, read chapter eight. It states the finding and the four decisions that follow from it.
+
+If you came for the numbers, chapters three and four carry them, and the source ledger at the back names every publisher.
+
+If you disagree, good. Take the claim identifier from the sentence you object to, open the ledger, and read the passage it rests on. That is what it is there for.

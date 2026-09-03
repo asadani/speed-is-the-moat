@@ -1,0 +1,21 @@
+The experiment nobody had run.
+
+The business case for low latency rests on a number from a different decade and a different interaction. Someone finally tested the real thing.
+
+Ask why response speed matters and the answer arrives with remarkable consistency: Amazon found that every hundred milliseconds of delay cost one percent in sales. The figure appears in vendor decks, engineering blogs, and product briefs, usually without a date and never with a method.
+
+It is a real finding about e-commerce page loads. It is not a finding about language model inference, and the distance between those two things is not small: a page either renders or it does not, whereas a model streams a response whose content the reader is actively consuming while it arrives. Citing it in an inference context is citation laundering, a number that everyone repeats and nobody recomputed.
+
+A controlled test, at last
+
+A study published at the 2026 CHI conference ran the experiment directly. Two hundred and forty participants, randomly assigned, in a three-by-two between-subjects design: time-to-first-token fixed at 2, 9, or 20 seconds, across two categories of knowledge work. Every participant completed three tasks at their assigned latency, with system logs capturing behavior and surveys capturing perception.
+
+The behavioral result was flat. Prompting rates, copying, pasting, refreshing, none of it shifted with latency. What did drive behavior was the kind of task being done. Across a tenfold range in response delay, users did not measurably change how they worked.
+
+The perception result ran backwards.
+
+Participants who waited two seconds rated the model's output less thoughtful and less useful than participants who waited nine to twenty. Controlled experiment, n=240, CHI 2026
+
+Delay, in this setting, read as deliberation. Speed read as carelessness. The authors' conclusion is that latency is not simply a cost to be minimized but a tunable design variable, a claim that would have sounded perverse in a product review a year ago.
+
+Taken with the previous chapter, the shape of the answer emerges. The throughput case for speed is well evidenced and mechanically obvious. The interactive case, the one that justifies most latency engineering budgets, is resting on a borrowed statistic, and the one time somebody checked, it did not hold.

@@ -1,0 +1,33 @@
+Appendix A — Method, and what would break it.
+
+How this was assembled
+
+The work ran through a fixed pipeline: scope, gather, verify, synthesize, report. The ordering is the method. The question, its sub-questions, the out-of-scope list, and the evidence that would settle the matter were written before any source was read. Sources were then captured to disk and hashed; a source that was not snapshotted does not exist for this project. Each claim was bound to an exact quotation inside a captured file, and a verification gate checked every binding before the report was allowed to ship.
+
+The gate fails a document when a citation marker resolves to nothing, when a quoted passage does not occur in its snapshot, when a snapshot's hash has changed since capture, or when a contested claim is presented as settled. It returned PASS with zero hard failures across 65 claims and 33 sources.
+
+Every source carries a tier, from T1 to T4. The tier answers one question and only one: how directly can this be checked? It is not a rating of quality, and it says nothing about whether the source agreed with the argument. A vendor benchmark that supported the conclusion still scored T4; a price list that undercut it still scored T1.
+
+The scale used here is the technical one, adjusted for the pricing and governance questions, where the evidence that settles a point is commercial rather than engineering. The full definitions sit beside the ledger in Appendix B. One rule cut across all four: any latency or throughput figure older than twelve months was treated as a historical trend point, never as a current one.
+
+Two passes, and two reversals
+
+A first pass cleared the gate with six declared gaps. A second closed four of them, and two of those closures changed the answer rather than supporting it. The question of whether latency affects user behavior moved from "no independent evidence exists" to "a controlled experiment exists and it points the other way." The question of whether organizations govern speed moved from "unresolved" to "answered, against the thesis." Both reversals are recorded in the chapters where they occurred.
+
+What this does not establish
+
+The cross-provider figures rest on a single benchmarker. The corroborating benchmark measures hardware and serving stacks rather than API endpoints, so it confirms the shape of the finding rather than any specific number.
+
+The latency experiment covers two to twenty seconds of time-to-first-token on knowledge tasks. It does not settle voice, real-time, or long-horizon agentic interaction.
+
+Whether buying organizations set and enforce internal latency objectives is unverified; that requires procurement contracts not obtained here.
+
+No single named optimization was timed from publication to commodity default. A rate of improvement is not the same measurement.
+
+No independent auditor pass was run. Every locator is a mechanical quote-match against a captured file, which catches fabrication but not a quotation that is accurate and does not mean what the claim needs.
+
+Organizational execution speed, training speed, model quality rankings, GPU supply-chain economics, and self-hosted serving were all out of scope by design.
+
+What would change the conclusion
+
+The verdict turns toward "moat" if the custom-silicon tier proves unreachable by batch tuning across several model generations rather than being a temporary and expensive corner. It turns further away if the open-weight dispersion proves to be an artifact of one benchmarker's test geography or prompt mix. The finding most exposed to better evidence is the interactive-latency reversal, which is a single study. The finding least exposed is the erosion rate: two independent benchmarks, measuring different layers, both report software gains arriving faster than procurement can respond.

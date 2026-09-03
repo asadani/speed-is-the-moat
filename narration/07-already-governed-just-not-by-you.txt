@@ -1,0 +1,19 @@
+Already governed, just not by you.
+
+The premise says leaders have not yet made speed a strategic axis. The contracts say otherwise.
+
+Financial governance of AI has matured quickly. Ninety-eight percent of State of FinOps respondents now manage AI spend, and the priorities that displaced pure cost optimization are governance, forecasting, organizational alignment, and expanding coverage. Mature practice is described as moving toward unit economics and influencing technology selection, precisely the surface a speed criterion would have to occupy.
+
+Latency does not appear in that list. It would be easy, and wrong, to read that as proof that nobody governs speed. Absence of mention in one summary of one survey is not a measurement, and treating it as one is how a plausible story gets mistaken for a finding.
+
+Read the contract instead
+
+The direct evidence is in the deployment documentation, where it has been sitting in plain sight. Microsoft's table of deployment types carries a column headed Latency Service Level Agreement. Priority processing carries a defined latency target per model. Provisioned throughput carries a defined latency target per model. Standard deployments carry none. Batch carries none.
+
+Speed is not an unclaimed strategic axis awaiting an owner. It is a priced, tiered, contractually specified product, and what a buyer gives up by taking the cheap tier is exactly the latency guarantee.
+
+That changes what the problem is. The gap is not strategic imagination. It is that most organizations are sitting on the ungoverned tier by default rather than by decision, which is a procurement failure, and a considerably easier one to fix than a research program.
+
+The measurement discipline agrees
+
+The same institutionalization is visible where systems get benchmarked. MLPerf Inference v5.1 expanded an interactive scenario that tests performance under tighter latency constraints, motivated explicitly by agentic applications. That round drew a record twenty-seven submitting organizations. Latency is being standardized where vendors are measured, whatever is happening inside any given enterprise.

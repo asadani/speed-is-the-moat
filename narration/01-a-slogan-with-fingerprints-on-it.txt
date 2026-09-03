@@ -1,0 +1,25 @@
+A slogan with fingerprints on it.
+
+Before testing a claim it is worth knowing who is making it, and which of its two incompatible meanings is on the table.
+
+The phrase has a provenance, and it is not an analyst's. In the launch post for an open inference benchmark, AMD's vice president of GPU software is quoted saying exactly four words: "Speed is the moat." He is describing his own company's software stack, on a benchmark his company participates in, at a moment when its principal competitor holds the performance narrative.
+
+Read the same document a few paragraphs up and Nvidia's chief executive describes the identical benchmark results in an entirely different vocabulary, performance per dollar and per megawatt. Two vendors, one dataset, two framings. The one behind in raw throughput talks about efficiency; the one with a fast software story talks about speed. That is positioning rather than physics, and it is the first reason to hold the slogan at arm's length.
+
+Speed is the moat. Anush Elangovan, VP GPU Software, AMD, quoted in the InferenceMAX launch post
+
+None of which makes it wrong. Interested parties are often correct, and a claim's origin is a reason to test it carefully rather than a reason to dismiss it. But it does explain why the phrase travels so well: it is a good line, and somebody with a budget wanted it to travel.
+
+Two claims wearing one sentence
+
+The phrase carries two meanings that are routinely conflated, and they are not the same argument.
+
+The first is about organizational velocity: ship fast, learn fast, compound the advantage. That is a claim about how a company operates, and it is genuinely interesting. It is also not what this book examines. It was ruled out of scope in writing before any evidence was gathered, precisely because the two meanings are so easy to slide between.
+
+The second is narrower and measurable: that inference speed, latency and throughput, the rate at which a model returns tokens, is a durable differentiator for the systems built on it. That claim can be tested against benchmarks, price lists, contracts, and controlled experiments. It is the one tested here.
+
+What the word has to earn
+
+A moat is not an advantage. It is an advantage a competitor cannot cross. Faster is a fact about today; a moat is a claim about how long today lasts. Applied to inference, the word implies three things: that a meaningful gap exists between the fast and the slow, that the gap persists rather than closing, and that the gap produces something a business can actually bank.
+
+The chapters that follow take those in order, the size of the gap, its durability, and whether it converts. The first survives contact with the evidence. The second does not. The third turns out to depend entirely on what kind of work you are running, and the received wisdom about it is wrong in a direction almost nobody expects.

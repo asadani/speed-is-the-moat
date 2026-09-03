@@ -1597,3 +1597,80 @@ table.refs a{ color:var(--ink);text-decoration:none;border-bottom:.5px solid var
 
 </section>
 <!-- /BOOK-FORGE:ABOUT -->
+
+<!-- BOOK-AUDIO:BEGIN -->
+<style>#bookaudio{position:fixed;right:18px;bottom:18px;z-index:9999;max-width:min(340px,calc(100vw - 36px));
+ font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#F2EEE7}
+#bookaudio *{box-sizing:border-box}
+#bookaudio .ba-card{background:#1A1611;border:1px solid #3A322A;border-radius:10px;
+ box-shadow:0 8px 30px -10px rgba(0,0,0,.55);overflow:hidden}
+#bookaudio .ba-head{display:flex;align-items:center;gap:9px;padding:10px 12px;cursor:pointer;
+ background:none;border:0;width:100%;text-align:left;color:inherit;font:inherit}
+#bookaudio .ba-head:hover{background:#221D17}
+#bookaudio .ba-ico{flex:none;width:22px;height:22px;border-radius:50%;background:#C85C2D;
+ display:grid;place-items:center;font-size:10px;color:#fff}
+#bookaudio .ba-t{flex:1;min-width:0}
+#bookaudio .ba-t b{display:block;font-weight:600;font-size:12.5px}
+#bookaudio .ba-t span{display:block;color:#A39C90;font-size:11px;
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bookaudio .ba-chev{flex:none;color:#A39C90;transition:transform .18s}
+#bookaudio[data-open="1"] .ba-chev{transform:rotate(180deg)}
+#bookaudio .ba-body{display:none;border-top:1px solid #3A322A}
+#bookaudio[data-open="1"] .ba-body{display:block}
+#bookaudio audio{width:100%;display:block;background:#221D17}
+#bookaudio ol{list-style:none;margin:0;padding:4px;max-height:min(46vh,340px);overflow:auto}
+#bookaudio li{margin:0}
+#bookaudio .ba-tr{display:flex;gap:8px;width:100%;padding:7px 8px;background:none;border:0;
+ border-radius:6px;color:#D8D2C8;font:inherit;text-align:left;cursor:pointer}
+#bookaudio .ba-tr:hover{background:#221D17;color:#F2EEE7}
+#bookaudio .ba-tr[aria-current="true"]{background:#2C1E14;color:#F0A079}
+#bookaudio .ba-n{flex:none;width:18px;color:#7A7468;font-variant-numeric:tabular-nums}
+#bookaudio .ba-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#bookaudio .ba-d{flex:none;color:#7A7468;font-variant-numeric:tabular-nums}
+@media (max-width:560px){#bookaudio{left:12px;right:12px;bottom:12px;max-width:none}}
+@media print{#bookaudio{display:none!important}}</style>
+<aside id="bookaudio" data-open="0" aria-label="Listen to this book">
+  <div class="ba-card">
+    <button class="ba-head" type="button" aria-expanded="false">
+      <span class="ba-ico" aria-hidden="true">&#9654;</span>
+      <span class="ba-t"><b>Listen &middot; 10 tracks, 30 min</b><span></span></span>
+      <span class="ba-chev" aria-hidden="true">&#9650;</span>
+    </button>
+    <div class="ba-body">
+      <audio controls preload="none"></audio>
+      <ol>
+        <li><button class="ba-tr" type="button" data-src="audio/00-what-this-is-and-how-to-disbelieve-it.mp3"><span class="ba-n">1</span><span class="ba-nm">What this is and how to disbelieve it</span><span class="ba-d">1:58</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/01-a-slogan-with-fingerprints-on-it.mp3"><span class="ba-n">2</span><span class="ba-nm">A slogan with fingerprints on it</span><span class="ba-d">3:07</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/02-cost-is-understood-not-settled.mp3"><span class="ba-n">3</span><span class="ba-nm">Cost is understood not settled</span><span class="ba-d">3:34</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/03-how-much-speed-is-on-the-table.mp3"><span class="ba-n">4</span><span class="ba-nm">How much speed is on the table</span><span class="ba-d">2:25</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/04-the-half-life.mp3"><span class="ba-n">5</span><span class="ba-nm">The half life</span><span class="ba-d">3:45</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/05-what-speed-actually-buys.mp3"><span class="ba-n">6</span><span class="ba-nm">What speed actually buys</span><span class="ba-d">2:58</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/06-the-experiment-nobody-had-run.mp3"><span class="ba-n">7</span><span class="ba-nm">The experiment nobody had run</span><span class="ba-d">2:40</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/07-already-governed-just-not-by-you.mp3"><span class="ba-n">8</span><span class="ba-nm">Already governed just not by you</span><span class="ba-d">2:27</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/08-what-to-do-on-monday.mp3"><span class="ba-n">9</span><span class="ba-nm">What to do on monday</span><span class="ba-d">3:08</span></button></li>
+        <li><button class="ba-tr" type="button" data-src="audio/09-appendix-a-method-and-what-would-break-i.mp3"><span class="ba-n">10</span><span class="ba-nm">Appendix a method and what would break i</span><span class="ba-d">4:15</span></button></li>
+      </ol>
+    </div>
+  </div>
+</aside>
+<script>(function(){
+  var el=document.getElementById('bookaudio'); if(!el) return;
+  var a=el.querySelector('audio'), head=el.querySelector('.ba-head'),
+      sub=el.querySelector('.ba-t span'), rows=[].slice.call(el.querySelectorAll('.ba-tr'));
+  var cur=-1;
+  head.addEventListener('click',function(){
+    el.setAttribute('data-open', el.getAttribute('data-open')==='1'?'0':'1');
+  });
+  function select(i,play){
+    if(i<0||i>=rows.length) return;
+    cur=i;
+    rows.forEach(function(r,j){ r.setAttribute('aria-current', j===i?'true':'false'); });
+    a.src=rows[i].getAttribute('data-src');
+    sub.textContent=rows[i].querySelector('.ba-nm').textContent;
+    if(play) a.play().catch(function(){});
+  }
+  rows.forEach(function(r,i){ r.addEventListener('click',function(){ select(i,true); }); });
+  a.addEventListener('ended',function(){ if(cur+1<rows.length) select(cur+1,true); });
+  select(0,false);
+})();</script>
+<!-- BOOK-AUDIO:END -->

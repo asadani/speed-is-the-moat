@@ -1,0 +1,23 @@
+What to do on Monday.
+
+The finding is not that speed is unimportant. It is that almost everyone is buying it in the wrong place.
+
+Speed deserves an owner. Not the one the slogan implies, a team hunting the fastest provider, on a chase with no end, against a lead that halves in weeks. The job worth staffing owns placement: which workloads sit on which contractual tier, given that the tiers already exist and already price latency.
+
+That is a procurement function with an engineering input, and it is unglamorous in a way that probably explains why it goes unstaffed.
+
+Classify workloads by tier before comparing vendors. The batch, standard, and priority split holds the largest wall-clock difference available for a fixed budget and requires no change of provider. Most organizations run everything on one tier because nobody was asked to decide.
+
+Treat open-weight versus proprietary as the gate. Shopping for speed pays five to eight times on open weights and close to nothing on proprietary models. Model-class choice determines whether a speed program has anything to work with at all, settle that before funding the program.
+
+Buy the latency you need and stop paying for the rest. A latency target is a contract term available on request; on the standard tier there is nothing to enforce. Both halves of that sentence cost money in opposite directions.
+
+Do not assume faster is better in the interface. Within two to twenty seconds on knowledge tasks, faster changed no behavior and read as less thoughtful. Spend the latency budget where it compounds, agentic loops running dozens to hundreds of sequential turns, rather than on shaving an interactive response users may not reward.
+
+The thesis, restated honestly
+
+"Speed is the moat" fails on the evidence gathered here. Serving optimizations diffuse into open-source defaults, the frontier advances in days, a measured lead halves inside two months, position on the curve is purchased rather than defended, and the interactive business case is contradicted by the only controlled study available.
+
+What survives is narrower and more useful. Dispersion between providers is real and large where weights are openly served. It persists as a feature of the market rather than closing, because it originates in where operators choose to sit on a curve rather than in anyone's cleverness. And agentic work multiplies per-call latency into wall-clock outcomes in a way single-turn chat never did.
+
+So the durable asset is not being fast. It is being organized to keep choosing, to re-examine placement on the cost, latency, and throughput surface more often than a frontier moving in days will tolerate. That is an advantage built from attention and process rather than from technology, which makes it unglamorous, cheap to start, and available to anyone willing to treat it as somebody's actual job.

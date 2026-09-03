@@ -1,0 +1,25 @@
+Cost is understood, not settled.
+
+The thesis assumes token economics are a solved problem and speed is the successor axis. Half of that holds.
+
+There is no serious dispute about the direction. Epoch AI measured the price of reaching a fixed capability milestone across six benchmarks over three years and found it falling between nine and nine hundred times per year, with a median of fifty. Restricting the data to models released after January 2024 raises that median to two hundred. Whatever else is true of this market, things are getting cheaper at a rate with no obvious precedent.
+
+The magnitude, though, is contested in a way worth understanding. Andreessen Horowitz puts the decline at ten times per year for a model of equivalent performance, five times slower than Epoch's median. Neither number is wrong. They are measuring different objects: Epoch fits a regression across capability milestones on six benchmarks, while the venture firm tracks a single equivalence curve. Epoch also cautions that its fastest observed rates are recent and may not hold.
+
+Understood is not finished
+
+Managing AI spend has become near-universal practice. Ninety-eight percent of 1,192 respondents to the sixth annual State of FinOps survey now manage it, up from thirty-one percent two years earlier. On that evidence the thesis is right that cost is understood.
+
+It does not follow that cost has stopped being the competitive axis. In July 2026 OpenAI cut two GPT-5.6 tiers by twenty and eighty percent respectively, roughly three weeks after those models were released, and its own published price list confirms the cheapest tier at twenty cents and one dollar twenty per million tokens in and out. Contemporary reporting attributes the move to pressure from a cost-sensitive customer base. The company framed it as capability and efficiency advancing together.
+
+A market where a leading vendor cuts prices eighty percent three weeks after launch is not a market that has finished competing on price.
+
+The two axes are one curve
+
+The deeper problem with the sequential framing is mechanical. Latency and throughput are not independent of cost; they are the same dial viewed from different ends.
+
+Serving works by batching. Pack more requests onto a GPU and each one costs less to serve, because fixed capacity is amortized across more work, but every request in the batch waits longer, sharing attention with its neighbors. Small batches give low latency and poor economics; large batches invert both. On fixed hardware you cannot have minimum latency and maximum throughput at once. A second benchmark, run independently, reproduces the same structure and insists on reporting performance as a curve rather than a number.
+
+Where a provider sets their batch size is a business decision as much as a technical one. On the economics of inference serving
+
+Which reframes the whole question. A speed program run on the assumption that cost is finished will keep rediscovering that its latency wins arrive as cost increases, and that the cheap tier it was told to use is slow for a reason. These are not two axes to be tackled in sequence. They are one surface, and the only real decision is where to sit on it.
